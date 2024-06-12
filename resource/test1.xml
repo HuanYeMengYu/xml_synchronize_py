@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <settings>
+    <option1>value1</option1>
+    <option2>value2</option2>
+    <option3>value3</option3>
+  </settings>
+  <data>
+    <entry>
+      <id>1</id>
+      <name>Item 1</name>
+      <description>Description 1</description>
+    </entry>
+  </data>
+</root>

@@ -1,0 +1,6 @@
+<root>
+    <!-- This is a comment -->
+    <element>Some content</element>
+    <child>Another content</child>
+    <!-- Another comment -->
+</root>
