@@ -3,10 +3,10 @@
 <!--   <COPYRIGHT_TAG>                                                                       -->
 <!--                                                                                         -->
 <CellConfig>
-  <add1>666</add1>
-  <version>23.07</version>
+  <add1>888</add1>
+  <new1>777</new1>
+  <new2>888</new2>
   <cellId>1</cellId>
-  <add2>666</add2>
   <nDMRSTypeAPos>3</nDMRSTypeAPos>
   <nPhyCellId>11</nPhyCellId>
   <nULBandwidth>40</nULBandwidth>
@@ -29,7 +29,6 @@
   <slotCfg3>0,0,0,0,0,0,0,0,0,0,0,0,0,0</slotCfg3>
   <slotCfg4>0,0,0,0,0,0,0,0,0,0,0,0,0,0</slotCfg4>
   <ssbCfg>
-    <nSSBMask>1</nSSBMask>
     <add3>666</add3>
     <nSSBPwr>0</nSSBPwr>
     <nSSBAbsFre>4804320</nSSBAbsFre>

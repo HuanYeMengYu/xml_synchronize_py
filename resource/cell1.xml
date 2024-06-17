@@ -3,9 +3,9 @@
 <!--   <COPYRIGHT_TAG>                                                                       -->
 <!--                                                                                         -->
 <CellConfig>
-  <add1>777</add1>
+  <add1>888</add1>
   <new1>777</new1>
-  <version>23.07</version>
+  <new2>888</new2>
   <cellId>1</cellId>
   <nDMRSTypeAPos>666</nDMRSTypeAPos>
   <nPhyCellId>11</nPhyCellId>

@@ -3,9 +3,9 @@
 <!--   <COPYRIGHT_TAG>                                                                       -->
 <!--                                                                                         -->
 <CellConfig>
-  <add1>777</add1>
+  <add1>888</add1>
   <new1>777</new1>
-  <version>23.07</version>
+  <new2>888</new2>
   <cellId>1</cellId>
   <nDMRSTypeAPos>3</nDMRSTypeAPos>
   <nPhyCellId>11</nPhyCellId>
@@ -30,7 +30,6 @@
   <slotCfg4>1,1,1,1,1,1,1,1,1,1,1,1,1,1</slotCfg4>
   <ssbCfg>
     <add3>777</add3>
-    <new2>777</new2>
     <nSSBPwr>0</nSSBPwr>
     <nSSBAbsFre>2113240</nSSBAbsFre>
     <nSSBPeriod>2</nSSBPeriod>
