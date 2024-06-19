@@ -1,0 +1,1 @@
+python ./src/main.py ./resource/sync_value.txt ./resource/test1.xml ./resource/benchmark/

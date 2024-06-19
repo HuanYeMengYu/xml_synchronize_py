@@ -6,8 +6,11 @@ def sync_value(src_elem, dst_elem, sync_elems):
     for elem_name in sync_elems:
         find_src_elems = src_elem.xpath(f'//{elem_name}')
         find_dst_elems = dst_elem.xpath(f'//{elem_name}')
-        for find_src_elem, find_dst_elem in zip(find_src_elems, find_dst_elems):
-            find_dst_elem.text = find_src_elem.text
+        for find_src_elem in find_src_elems:
+            for find_dst_elem in find_dst_elems:
+                if src_elem.getroottree().getpath(find_src_elem) == dst_elem.getroottree().getpath(find_dst_elem):
+                    print(f"同步标签数据{src_elem.getroottree().getpath(find_src_elem)}")
+                    find_dst_elem.text = find_src_elem.text
 
     # 同步注释
     # 迭代普通的元素节点

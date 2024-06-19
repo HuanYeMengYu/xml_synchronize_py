@@ -14,7 +14,7 @@ def main():
 
     print(f"同步了{len(files)}个xml文件:")
     for file in files:
-        print(file)
+        print("同步文件" + file)
 
 if __name__ == '__main__':
     main()

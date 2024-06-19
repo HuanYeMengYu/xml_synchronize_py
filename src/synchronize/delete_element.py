@@ -7,8 +7,15 @@ def sync_del(src_elem, dst_elem):
     for dst_child in normal_elements:
         if len(dst_elem.xpath(f'//{dst_child.tag}'))==0:
             continue
+        flag_exit = False
         find_src_children = src_elem.xpath(f'//{dst_child.tag}')
-        if len(find_src_children)==0:
+        if len(find_src_children)!=0:
+            for find_src_child in find_src_children:
+                if find_src_child.getroottree().getpath(find_src_child) == dst_child.getroottree().getpath(dst_child):
+                    flag_exit = True
+
+        if flag_exit == False:
+            print(f"删除标签{dst_child.getroottree().getpath(dst_child)}")
             parent = dst_child.getparent()
             parent.remove(dst_child)
 

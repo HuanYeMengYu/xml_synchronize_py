@@ -39,6 +39,17 @@
     <nSSBPrbOffset>0</nSSBPrbOffset>
     <nCSS0>0</nCSS0>
     <nCORESET0>4</nCORESET0>
+    <catalog>
+      <book1>
+        <title1>XML Basics</title1>
+        <author1>John Doe</author1>
+        <price1>29.99</price1>
+      </book1>
+      <book2>
+        <title2>Advanced XML</title2>
+        <author2>Jane Smith</author2>
+      </book2>
+    </catalog>
   </ssbCfg>
   <nNumSymPdcch>1</nNumSymPdcch>
   <Coreset>
@@ -232,4 +243,18 @@
   </SemiPersistentScheduling>
   <Cell_Identity>0</Cell_Identity>
   <Global_gNB_ID>0</Global_gNB_ID>
+  <library>
+    <firstBook>
+      <bookTitle>Understanding XML</bookTitle>
+      <bookAuthor>Michael Brown</bookAuthor>
+      <publicationYear>2021</publicationYear>
+      <bookPublisher>Tech Books Publishing</bookPublisher>
+    </firstBook>
+    <secondBook>
+      <bookTitle>XML for Beginners</bookTitle>
+      <bookAuthor>Sarah Johnson</bookAuthor>
+      <publicationYear>2019</publicationYear>
+      <bookPublisher>LearnTech</bookPublisher>
+    </secondBook>
+  </library>
 </CellConfig>

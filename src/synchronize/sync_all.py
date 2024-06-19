@@ -16,9 +16,9 @@ def sync_all(sync_value_file, sample_xml_path, dst_xmls_path):
         dst_doc = etree.parse(dst_xml_path)
         dst_root = dst_doc.getroot()
 
-        sync_value.sync_value(src_root, dst_root, sync_elems)
         delete_element.sync_del(src_root, dst_root)
         add_element.sync_add(src_root, dst_root)
+        sync_value.sync_value(src_root, dst_root, sync_elems)
 
         dst_doc.write(dst_xml_path, pretty_print=True)
         # 调用系统命令
