@@ -1,1 +1,1 @@
-python ./src/main.py ./resource/sync_value.txt ./resource/test1.xml ./resource/benchmark/
+python .\src\main.py .\sync_value.txt .\resource\cell1.xml .\resource\benchmark\HTOFF_todo\PacketHTOFF\AMHTOFF\
