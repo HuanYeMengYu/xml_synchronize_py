@@ -3,7 +3,6 @@
   <!-- settings comment -->
   <settings>
     <option1>value777</option1>
-    <option1>value777</option1>
     <new1>new1</new1>
     <option2>value2</option2>
     <option3>value3</option3>
@@ -13,7 +12,7 @@
     <entry>
       <id>1</id>
       <new2>new2</new2>
-      <description>Description 777</description>
+      <description>Description 666</description>
     </entry>
   </data>
 </root>

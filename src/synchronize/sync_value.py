@@ -1,4 +1,5 @@
 from lxml import etree
+from . import get_path
 from . import get_sync_elems
 
 def sync_value(src_elem, dst_elem, sync_elems):
@@ -8,13 +9,9 @@ def sync_value(src_elem, dst_elem, sync_elems):
         find_dst_elems = dst_elem.xpath(f'//{elem_name}')
         for find_src_elem in find_src_elems:
             for find_dst_elem in find_dst_elems:
-                if src_elem.getroottree().getpath(find_src_elem) == dst_elem.getroottree().getpath(find_dst_elem):
-                    print(f"同步标签数据{src_elem.getroottree().getpath(find_src_elem)}")
+                if get_path.get_path(find_src_elem) == get_path.get_path(find_dst_elem):
+                    print(f"同步标签数据{get_path.get_path(find_src_elem)}")
                     find_dst_elem.text = find_src_elem.text
-
-    # 同步注释
-    # 迭代普通的元素节点
-    # normal_elements = [elem for elem in src_children if not isinstance(elem, etree._Comment)]
 
 if __name__ == '__main__':
     src_doc = etree.parse("../../resource/test1.xml")
@@ -24,4 +21,3 @@ if __name__ == '__main__':
     words = get_sync_elems.get_sync_elems("../../resource/sync_value.txt")
     sync_value(src_root, dst_root, words)
     dst_doc.write("../../resource/test2.xml", pretty_print=True)
-    

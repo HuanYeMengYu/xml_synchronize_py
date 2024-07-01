@@ -227,12 +227,4 @@
   </SemiPersistentScheduling>
   <Cell_Identity>0</Cell_Identity>
   <Global_gNB_ID>0</Global_gNB_ID>
-  <library>
-    <firstBook>
-      <bookTitle>Understanding XML</bookTitle>
-      <bookAuthor>Michael Brown</bookAuthor>
-      <publicationYear>2021</publicationYear>
-      <bookPublisher>Tech Books Publishing</bookPublisher>
-    </firstBook>
-  </library>
 </CellConfig>

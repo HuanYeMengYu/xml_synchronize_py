@@ -1,11 +1,17 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--                                                                                         -->
 <!--   <COPYRIGHT_TAG>                                                                       -->
 <!--                                                                                         -->
 <CellConfig>
-  <add1>888</add1>
-  <new1>777</new1>
-  <new2>888</new2>
+  <add1>
+    <son1>son1</son1>
+    <son2>son2</son2>
+    <son3>
+      <grandson1>grandson1</grandson1>
+      <grandson2>grandson2</grandson2>
+      <grandson3>grandson3</grandson3>
+    </son3>
+  </add1>
   <cellId>1</cellId>
   <nDMRSTypeAPos>666</nDMRSTypeAPos>
   <nPhyCellId>11</nPhyCellId>
@@ -29,9 +35,16 @@
   <slotCfg3>0,0,0,0,0,0,0,0,0,0,0,2,2,1</slotCfg3>
   <slotCfg4>1,1,1,1,1,1,1,1,1,1,1,1,1,1</slotCfg4>
   <ssbCfg>
-    <add3>777</add3>
-    <new2>777</new2>
-    <nSSBPwr>0</nSSBPwr>
+    <add2>
+      <son4>son4</son4>
+      <son5>son5</son5>
+      <son6>
+        <grandson4>grandson4</grandson4>
+        <grandson5>grandson5</grandson5>
+        <grandson6>grandson6</grandson6>
+      </son6>
+    </add2>
+    <nSSBPwr>666</nSSBPwr>
     <nSSBAbsFre>4804320</nSSBAbsFre>
     <nSSBPeriod>2</nSSBPeriod>
     <nSSBSubcSpacing>2</nSSBSubcSpacing>
@@ -39,28 +52,8 @@
     <nSSBPrbOffset>0</nSSBPrbOffset>
     <nCSS0>0</nCSS0>
     <nCORESET0>4</nCORESET0>
-    <catalog>
-      <book1>
-        <title1>XML Basics</title1>
-        <author1>John Doe</author1>
-        <price1>29.99</price1>
-      </book1>
-      <book2>
-        <title2>Advanced XML</title2>
-        <author2>Jane Smith</author2>
-      </book2>
-    </catalog>
   </ssbCfg>
   <nNumSymPdcch>1</nNumSymPdcch>
-  <Coreset>
-    <numCoreset>3</numCoreset>
-    <nFrequencyDomainResources1>0x1FFFFFFFFFFF</nFrequencyDomainResources1>
-    <nCCEToREGType1>0</nCCEToREGType1>
-    <nDmrsScramblingID1>0xFFFF</nDmrsScramblingID1>
-    <nFrequencyDomainResources2>0x1FC000000000</nFrequencyDomainResources2>
-    <nCCEToREGType2>0</nCCEToREGType2>
-    <nDmrsScramblingID2>0xFFFF</nDmrsScramblingID2>
-  </Coreset>
   <nNumPdschTimeDomain>4</nNumPdschTimeDomain>
   <!-- sort by symbol length -->
   <nPdschTimeDomainSLIV0>40</nPdschTimeDomainSLIV0>
@@ -243,18 +236,4 @@
   </SemiPersistentScheduling>
   <Cell_Identity>0</Cell_Identity>
   <Global_gNB_ID>0</Global_gNB_ID>
-  <library>
-    <firstBook>
-      <bookTitle>Understanding XML</bookTitle>
-      <bookAuthor>Michael Brown</bookAuthor>
-      <publicationYear>2021</publicationYear>
-      <bookPublisher>Tech Books Publishing</bookPublisher>
-    </firstBook>
-    <secondBook>
-      <bookTitle>XML for Beginners</bookTitle>
-      <bookAuthor>Sarah Johnson</bookAuthor>
-      <publicationYear>2019</publicationYear>
-      <bookPublisher>LearnTech</bookPublisher>
-    </secondBook>
-  </library>
 </CellConfig>
