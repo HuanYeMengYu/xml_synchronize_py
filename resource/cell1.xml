@@ -96,6 +96,24 @@
   <enablePucch>1</enablePucch>
   <enableSr>1</enableSr>
   <enableCsi>1</enableCsi>
+  <!-- comment chenzhaoqing -->
+  <chenzhaoqing>
+    <!-- comment studentcode -->
+    <studentCode>U202215409</studentCode>
+    <!-- comment age -->
+    <age>20</age>
+    <!-- comment major -->
+    <major>cumputerScience</major>
+    <!-- comment friend -->
+    <freind>
+      <!-- comment wang -->
+      <wang>wang</wang>
+      <!-- comment li -->
+      <li>li</li>
+      <!-- comment zhao -->
+      <zhao>zhao</zhao>
+    </freind>
+  </chenzhaoqing>
   <pucchCfg>
     <!-- the max is 160 when u = 1 -->
     <srPeriod>160</srPeriod>
