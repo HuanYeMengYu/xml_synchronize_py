@@ -3,16 +3,7 @@
 <!--   <COPYRIGHT_TAG>                                                                       -->
 <!--                                                                                         -->
 <MacConfig>
-  <version>23.07</version>
-  <add1>
-    <son1>son1</son1>
-    <son2>son2</son2>
-    <son3>
-      <grandson1>grandson1</grandson1>
-      <grandson2>grandson2</grandson2>
-      <grandson3>grandson3</grandson3>
-    </son3>
-  </add1>
+  <version>23.09</version>
   <Api>
     <!--  Full path to wls device used for transport of MAC-PHY API (e.g. wls0 )-->
     <wls_dev_name>wls666</wls_dev_name>
@@ -31,15 +22,6 @@
   <DPDK>
     <!--  name of DPDK memory zone, needs to align between primary and secondary process -->
     <dpdkFilePrefix>gnb0</dpdkFilePrefix>
-    <add2>
-      <son4>son4</son4>
-      <son5>son5</son5>
-      <son6>
-        <grandson4>grandson4</grandson4>
-        <grandson5>grandson5</grandson5>
-        <grandson6>grandson6</grandson6>
-      </son6>
-    </add2>
     <!--  DPDK IOVA Mode used for DPDK initialization. If 0, then PA mode. Else VA Mode -->
     <dpdkIovaMode>0</dpdkIovaMode>
   </DPDK>

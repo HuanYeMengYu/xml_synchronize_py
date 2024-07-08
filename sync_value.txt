@@ -1,1 +1,1 @@
-nSSBPwr
+phyBlockSize

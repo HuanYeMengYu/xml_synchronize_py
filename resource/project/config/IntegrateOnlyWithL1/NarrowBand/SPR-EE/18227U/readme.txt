@@ -1,0 +1,2 @@
+1.change nr5g_gnb_mac2phy_api_rx_proc_handle_wls time threshold to 1100 instead of 800
+2.comment out print_inf("/Uunsupported Message %d\n", pCurrMsg->nMessageType) in nr5g_gnb_mac2phy_api_rx_proc_handle_wls;

@@ -20,31 +20,11 @@ def recover_sequence(src_elem, dst_elem):
             index = get_element_index.get_element_index(src_child)
             dst_children = dst_parent.iterchildren()
             for dst_child in dst_children:
-                # 注释节点同路径同名如何处理？
-                # if isinstance(src_child, etree._Comment) and isinstance(dst_child, etree._Comment):
-                #     if src_child.text == dst_child.text:
-                #         dst_parent.insert(index, copy.deepcopy(dst_child))
-                #         dst_parent.remove(dst_child)
-                #         break
                 if isinstance(src_child, etree._Element) and isinstance(dst_child, etree._Element):
                     if src_child.tag == dst_child.tag:
                         dst_parent.insert(index, copy.deepcopy(dst_child))
                         dst_parent.remove(dst_child)
                         break
-
-            # # 获取正确下标
-            # index = get_index.get_index(src_child)
-
-            # # 找到目标xml的对应标签并调整其下标
-            # if isinstance(src_child, etree._Comment):
-            #     dst_children = dst_elem.getroottree().xpath(f"//comment()[. = '{src_child.text}']")
-            # else:
-            #     dst_children = dst_elem.xpath(f'//{src_child.tag}')
-            # if len(dst_children) != 0:
-            #     for dst_child in dst_children:
-            #         if get_path.get_path(dst_child) == get_path.get_path(src_child):
-            #             dst_child.getparent().insert(index, copy.deepcopy(dst_child))
-            #             dst_child.getparent().remove(dst_child)
 
 if __name__ == '__main__':
     # 测试用例

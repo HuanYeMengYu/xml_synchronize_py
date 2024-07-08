@@ -1,0 +1,783 @@
+<?xml version="1.0"?>
+<!--                                                                                         -->
+<!--   <COPYRIGHT_TAG>                                                                       -->
+<!--                                                                                         -->
+<PhyConfig>
+    <version>24.03</version>
+
+    <Api>
+        <!--  Maximum number of successive missing API allowed before triggering PHY stop (-1 is infinite) -->
+        <successiveNoApi>15</successiveNoApi>
+        <!--  WLS Wakeup Secondary process mode. 1: Wakeup using Semaphore. 0: Do usleep and wakeup using atomic variable -->
+        <wls_sema_wake_up>1</wls_sema_wake_up>
+        <!-- Number of WLS instances to open. Range 1-16. This is so that different L2 applications can talk to single L1 application -->
+        <wls_num_instances>1</wls_num_instances>
+        <!-- Number of blocks to pre-allocate per cell in UL direction to make it thread safe and lockless (Range: 8-48) -->
+        <wls_ul_queue_depth>48</wls_ul_queue_depth>
+        <!-- Align size for WLS memzone. This needs to be in powers of 2. Range -> 64 to 1GB -->
+        <!-- If 0, then 1GB is used -->
+        <wls_memory_align>0</wls_memory_align>
+        <!-- Full path to wls device used for transport of MAC-PHY API (e.g. wls0) -->
+        <wls_dev_name0>wls0</wls_dev_name0>
+        <!-- Mapping of WLS Instance to Cell ID. This is in Hex -->
+        <wls_cell_mapping0>0xFFFFFF</wls_cell_mapping0>
+        <!-- MAC managed WLS Memory size. This is used for all API buffer allocations -->
+        <wlsMacMemorySize>0x3EA80000</wlsMacMemorySize>
+        <!-- L1 managed WLS Memory size. This is used for SRS weight storage. For 64x64 usecase and 6 cells (with 512 users per cell) use 0x18000000 -->
+        <wlsPhyMemorySize>0x18000000</wlsPhyMemorySize>
+    </Api>
+
+    <PhyLogs>
+        <CoreDumpEnable>0</CoreDumpEnable>
+        <IqLogs>
+            <dlIqLog>0</dlIqLog>
+            <ulIqLog>0</ulIqLog>
+        </IqLogs>
+        <DebugLogs>
+            <phyMlog>1</phyMlog>
+            <phyStats>1</phyStats>
+            <!-- Number of SubFrame recorded in Phystats, default value 1024 -->
+            <PhystatsSubFrameNum>1024</PhystatsSubFrameNum>
+            <!-- Enable/disable Phystats log streaming [0 - disable (no PhyStats Streaming), Non 0 - enable PhyStats Streaming with so many max files ] -->
+            <maxNumPhyStatsFiles>20</maxNumPhyStatsFiles>
+        </DebugLogs>
+        <!-- If 1, all L1-generated logs saved with timestamps in directory config by <L1LogPath>; If 0, all L1-generated logs saved without timestamps in default directory (config by hardcode) -->
+        <TimePathEnable>0</TimePathEnable>
+        <!-- Using absolute path name (for example /var/log/ ) to save all L1-generated logs in desired path, only take effect when TimePathEnable is 1 -->
+        <L1LogPath>./</L1LogPath>
+        <!-- Named pipe used to receive commands from new L1APP console created by script L1APP_console.py, can be modified for different L1APP instance -->
+        <!-- <L1NamedPipe>/tmp/L1console_fifo</L1NamedPipe> -->
+    </PhyLogs>
+
+    <!-- This section defines all DPDK related parameters used for DPDK initialization -->
+    <DPDK>
+        <!--  name of DPDK memory zone, needs to align between primary and secondary process -->
+        <dpdkFilePrefix>gnb0</dpdkFilePrefix>
+        <!--  DPDK memory size allocated from hugepages [MB]  [default: 2048] -->
+        <dpdkMemorySize>20480</dpdkMemorySize>
+        <!--  DPDK IOVA Mode used for DPDK initialization. If 0, then PA mode. Else VA Mode -->
+        <dpdkIovaMode>0</dpdkIovaMode>
+        <!-- VFIO token for DPDK EAL commandline, required when PF is bound to vfio-pci -->
+        <dpdkVfioVfToken>00112233-4455-6677-8899-aabbccddeeff</dpdkVfioVfToken>
+        <!--  DPDK FEC BBDEV to use             [0 - SW, 1 - HW accelerator, 2 - Both] -->
+        <dpdkBasebandFecMode>1</dpdkBasebandFecMode>
+        <!--  DPDK BBDev name added to the passlist. The argument format is <[domain:]bus:devid.func> -->
+        <dpdkBasebandDevice>0000:f7:00.0</dpdkBasebandDevice>
+        <!--  TB mode enable [0 - CB mode, 1 - TB mode] when support by accelerator variant -->
+        <tbModeEnable>1</tbModeEnable>
+        <!-- DDP flow config -->
+        <FlowConfig>
+            <FlowNum>0</FlowNum>
+            <!-- flow0 config -->
+            <Flow0>
+                <Flow0Egress>0</Flow0Egress>
+                <Flow0Ingress>1</Flow0Ingress>
+                <!-- GTP:v_pt_rsv_flags, msg_type, msg_len, teid -->
+                <Flow0GTPSpec>0x0, 0x0, 0x0, 0x07000000</Flow0GTPSpec>
+                <Flow0GTPMask>0x0, 0x0, 0x0, 0xff000000</Flow0GTPMask>
+                <!-- the Index should be equal to the one in L2 maccfg.xml -->
+                <Flow0QueueIndex>1</Flow0QueueIndex>
+            </Flow0>
+            <!-- flow1 config -->
+            <Flow1>
+                <Flow1Egress>0</Flow1Egress>
+                <Flow1Ingress>1</Flow1Ingress>
+                <!-- GTP:v_pt_rsv_flags, msg_type, msg_len, teid -->
+                <Flow1GTPSpec>0x0, 0x0, 0x0, 0x05000000</Flow1GTPSpec>
+                <Flow1GTPMask>0x0, 0x0, 0x0, 0xff000000</Flow1GTPMask>
+                <!-- the Index should be equal to the one in L2 maccfg.xml -->
+                <Flow1QueueIndex>2</Flow1QueueIndex>
+            </Flow1>
+        </FlowConfig>
+        <!-- crypto config -->
+        <CryptoConfig>
+            <!-- cipher algo 1:NULL  6:AES_CTR   12:SNOW3G  13:ZUC  -->
+            <ciphAlgo>13</ciphAlgo>
+            <!-- integrity alog, 1:NULL  3:AES_CMAC  19:SNOW3G  20:ZUC  -->
+            <intAlgo>20</intAlgo>
+            <!-- DPDK crypt QAT virtual pci-e address -->
+            <dpdkQatAddr0>0000:4d:01.0</dpdkQatAddr0>
+            <!-- DPDK crypt QAT virtual pci-e address -->
+            <dpdkQatAddr1>0000:4d:01.1</dpdkQatAddr1>
+            <!-- DPDK crypt QAT virtual pci-e address -->
+            <dpdkQatAddr2>0000:4d:01.2</dpdkQatAddr2>
+            <!-- DPDK crypt QAT virtual pci-e address-->
+            <dpdkQatAddr3>0000:4d:01.3</dpdkQatAddr3>
+        </CryptoConfig>
+        <!-- This section is used to init DPDK shared ports and memory with secondary process  -->
+        <DPDKSharedResource>
+            <!-- number of the set of shared ports and corresponding memory, maximum 4, if none, set to 0 -->
+            <numSharedResource>1</numSharedResource>
+
+            <!--  Shared Resource Config 0 -->
+            <SharedResource0>
+                <!-- DPDK memory pool name, if don't want to init memory pool, set name to 0 -->
+                <mempoolName0>fast_pkt</mempoolName0>
+                <!-- The number of elements in the mempool. The optimum size for a mempool is when n is a power of two minus one: n = (2^q - 1) -->
+                <numElement0>131071</numElement0>
+                <!-- DDP flag[0 - disable, 1 - enable] -->
+                <enableDDP0>0</enableDDP0>
+                <!--  DPDK crypto mode [0 - inactive, 1 - SW, 2 - QAT]-->
+                <cryptoMode0>0</cryptoMode0>
+                <!-- The size of each element -->
+                <elementSize0>2048</elementSize0>
+                <!-- The size of the private data appended after the mempool structure-->
+                <privateDataSize0>64</privateDataSize0>
+                <!-- DPDK ring pool name, if don't want to init ring, set name to 0 -->
+                <ringName0>0</ringName0>
+                <!-- The size of the ring (must be a power of 2) -->
+                <ringSize0>1024</ringSize0>
+                <!-- DPDK port pci-e address, if don't want to init port, set number to 0 -->
+                <portAddr0>0000:43:0a.0</portAddr0>
+                <!-- DPDK port socket index -->
+                <portSocketIdx0>0</portSocketIdx0>
+                <!-- Number of Tx queue -->
+                <txQueueNum0>1</txQueueNum0>
+                <!-- Tx queue description -->
+                <txQueueDesc0>512</txQueueDesc0>
+                <!-- Number of Rx queue -->
+                <rxQueueNum0>1</rxQueueNum0>
+                <!-- Rx queue description -->
+                <rxQueueDesc0>4096</rxQueueDesc0>
+                <!-- Max payload size, if larger than 1500Bytes, Jumbo frame will be enabled -->
+                <maxPayloadSize0>9728</maxPayloadSize0>
+                <!--  Enable DPDK based NIC ports on testmac [0 - Dont Initialize, 1 - Initialize] -->
+                <testMacEnable0>0</testMacEnable0>
+            </SharedResource0>
+
+            <!--  Shared Resource Config 1 -->
+            <SharedResource1>
+                <!-- DPDK memory pool name, if don't want to init memory pool, set name to 0 -->
+                <mempoolName1>header_pkt</mempoolName1>
+                <!-- The number of elements in the mempool. The optimum size for a mempool is when n is a power of two minus one: n = (2^q - 1) -->
+                <numElement1>65535</numElement1>
+                <!-- DDP flag[0 - disable, 1 - enable] -->
+                <enableDDP1>0</enableDDP1>
+                <!--  DPDK crypto mode [0 - inactive, 1 - SW, 2 - QAT]-->
+                <cryptoMode1>0</cryptoMode1>
+                <!-- The size of each element -->
+                <elementSize1>2048</elementSize1>
+                <!-- The size of the private data appended after the mempool structure-->
+                <privateDataSize1>64</privateDataSize1>
+                <!-- DPDK ring pool name, if don't want to init ring, set name to 0 -->
+                <ringName1>0</ringName1>
+                <!-- The size of the ring (must be a power of 2) -->
+                <ringSize1>1024</ringSize1>
+                <!-- DPDK port pci-e address, if don't want to init port, set number to 0 -->
+                <portAddr1>0000:4b:11.1</portAddr1>
+                <!-- DPDK port socket index -->
+                <portSocketIdx1>1</portSocketIdx1>
+                <!-- Number of Tx queue -->
+                <txQueueNum1>2</txQueueNum1>
+                <!-- Tx queue description -->
+                <txQueueDesc1>512</txQueueDesc1>
+                <!-- Number of Rx queue -->
+                <rxQueueNum1>1</rxQueueNum1>
+                <!-- Rx queue description -->
+                <rxQueueDesc1>128</rxQueueDesc1>
+                <!-- Max payload size, if larger than 1500Bytes, Jumbo frame will be enabled -->
+                <maxPayloadSize1>9728</maxPayloadSize1>
+                <!--  Enable DPDK based NIC ports on testmac [0 - Dont Initialize, 1 - Initialize] -->
+                <testMacEnable0>0</testMacEnable0>
+            </SharedResource1>
+
+            <!--  Shared Resource Config 2 -->
+            <SharedResource2>
+                <!-- DPDK memory pool name, if don't want to init memory pool, set name to 0 -->
+                <mempoolName2>clone_pkt</mempoolName2>
+                <!-- The number of elements in the mempool. The optimum size for a mempool is when n is a power of two minus one: n = (2^q - 1) -->
+                <numElement2>65535</numElement2>
+                <!-- DDP flag[0 - disable, 1 - enable] -->
+                <enableDDP2>0</enableDDP2>
+                <!--  DPDK crypto mode [0 - inactive, 1 - SW, 2 - QAT]-->
+                <cryptoMode2>0</cryptoMode2>
+                <!-- The size of each element -->
+                <elementSize2>2048</elementSize2>
+                <!-- The size of the private data appended after the mempool structure-->
+                <privateDataSize2>64</privateDataSize2>
+                <!-- DPDK ring pool name, if don't want to init ring, set name to 0 -->
+                <ringName2>0</ringName2>
+                <!-- The size of the ring (must be a power of 2) -->
+                <ringSize2>1024</ringSize2>
+                <!-- DPDK port pci-e address, if don't want to init port, set number to 0 -->
+                <portAddr2>0</portAddr2>
+                <!-- DPDK port socket index -->
+                <portSocketIdx2>0</portSocketIdx2>
+                <!-- Number of Tx queue -->
+                <txQueueNum2>1</txQueueNum2>
+                <!-- Tx queue description -->
+                <txQueueDesc2>512</txQueueDesc2>
+                <!-- Number of Rx queue -->
+                <rxQueueNum2>1</rxQueueNum2>
+                <!-- Rx queue description -->
+                <rxQueueDesc2>128</rxQueueDesc2>
+                <!-- Max payload size, if larger than 1500Bytes, Jumbo frame will be enabled -->
+                <maxPayloadSize2>9728</maxPayloadSize2>
+                <!--  Enable DPDK based NIC ports on testmac [0 - Dont Initialize, 1 - Initialize] -->
+                <testMacEnable0>0</testMacEnable0>
+            </SharedResource2>
+
+            <!--  Shared Resource Config 3 -->
+            <SharedResource3>
+                <!-- DPDK memory pool name, if don't want to init memory pool, set name to 0 -->
+                <mempoolName3>pdu3</mempoolName3>
+                <!-- The number of elements in the mempool. The optimum size for a mempool is when n is a power of two minus one: n = (2^q - 1) -->
+                <numElement3>65535</numElement3>
+                <!-- DDP flag[0 - disable, 1 - enable] -->
+                <enableDDP3>0</enableDDP3>
+                <!--  DPDK crypto mode [0 - inactive, 1 - SW, 2 - QAT]-->
+                <cryptoMode3>0</cryptoMode3>
+                <!-- The size of each element -->
+                <elementSize3>2048</elementSize3>
+                <!-- The size of the private data appended after the mempool structure-->
+                <privateDataSize3>64</privateDataSize3>
+                <!-- DPDK ring pool name, if don't want to init ring, set name to 0 -->
+                <ringName3>sdu3</ringName3>
+                <!-- The size of the ring (must be a power of 2) -->
+                <ringSize3>1024</ringSize3>
+                <!-- DPDK port pci-e address, if don't want to init port, set number to 0 -->
+                <portAddr3>0</portAddr3>
+                <!-- DPDK port socket index -->
+                <portSocketIdx3>0</portSocketIdx3>
+                <!-- Number of Tx queue -->
+                <txQueueNum3>1</txQueueNum3>
+                <!-- Tx queue description -->
+                <txQueueDesc3>512</txQueueDesc3>
+                <!-- Number of Rx queue -->
+                <rxQueueNum3>1</rxQueueNum3>
+                <!-- Rx queue description -->
+                <rxQueueDesc3>128</rxQueueDesc3>
+                <!-- Max payload size, if larger than 1500Bytes, Jumbo frame will be enabled -->
+                <maxPayloadSize3>9728</maxPayloadSize3>
+                <!--  Enable DPDK based NIC ports on testmac [0 - Dont Initialize, 1 - Initialize] -->
+                <testMacEnable0>0</testMacEnable0>
+            </SharedResource3>
+        </DPDKSharedResource>
+    </DPDK>
+
+    <Radio>
+        <!-- Enable/disable radio               [0 - disable, 4 - xRAN Mode] -->
+        <radioEnable>4</radioEnable>
+    </Radio>
+
+    <PhyVars>
+        <!-- Pipeline SPR configuration-->
+        <!-- 0: disable, 1: enable -->
+        <PipelineSPR>0</PipelineSPR>
+        <!-- to boost precoding power -->
+        <!-- 0: no power boost, 1: boost precoding power -->
+        <PrecodingPowerBoost>0</PrecodingPowerBoost>
+        <!-- AGC target of signal amplitude  -->
+        <agcTarget>8192</agcTarget>
+        <!-- UL amplitude to complicance with radio. Rx0DbfsRadioPower is the radio power in dBm corresponding to 0 DBFS multiplied by 2^16 (converting float to int32)-->
+        <Rx0DbfsRadioPower>-3781794</Rx0DbfsRadioPower>
+        <Pdsch>
+            <!-- Split PDSCH symbol processing -->
+            <PdschSymbolSplit>0</PdschSymbolSplit>
+
+            <!-- PDSCH split and processing type. 0: UE Based processing, 1: OFDM symbol based processing except PDCCH, 4: OFDM symbol based processing for all 14 symbols -->
+            <PdschProcType>4</PdschProcType>
+
+            <!-- Max number of parallel tasks that the DL FEC Encoder is split into. Number needs to be between 1 and 4. If wrong value entered, it will be defaulted to 1.  -->
+            <!-- For hardware offload (using fpga / eAsic) it will be defaulted to 1.  -->
+            <FecEncSplit>2</FecEncSplit>
+
+            <!-- Bypass FEC Encoder. This is to mostly for some benchmarking purposes and is not real scenarios -->
+            <FecEncBypass>0</FecEncBypass>
+        </Pdsch>
+        <BeamWeight>
+            <!-- Split PDSCH DL beamforiming weight generation processing -->
+            <PdschDlWeightSplit>0</PdschDlWeightSplit>
+
+            <!-- Split PUSCH UL beamforiming weight generation processing -->
+            <PuschUlWeightSplit>0</PuschUlWeightSplit>
+
+            <!-- DL beamforming weight matrix gen algo choose -->
+            <!-- 0: ZF based weight gen algo, 1: dftcodebook based weight gen algo -->
+            <DLDFTBfWeightAlgoType>0</DLDFTBfWeightAlgoType>
+
+            <!-- beamforming weight matrix gen RB pick granularity -->
+            <DLBfWeightGenGranularity>1</DLBfWeightGenGranularity>
+
+            <!-- beamforming weight matrix gen RB pick out granularity -->
+            <DLBfWeightGenOutGranularity>0</DLBfWeightGenOutGranularity>
+
+            <!-- wether DFT beamforming weight matrix gen use oversample codebook -->
+            <DLBfIsOverSample>1</DLBfIsOverSample>
+
+            <!-- the oversample rate of the horizontal ant  -->
+            <DLRxAntHorizontalOverSample>4</DLRxAntHorizontalOverSample>
+
+            <!-- the oversample rate of the vertical ant  -->
+            <DLRxAntVerticalOverSample>4</DLRxAntVerticalOverSample>
+
+            <!-- the beam select type for DFT beamforming weight matrix gen -->
+            <DLBeamSelectType>2</DLBeamSelectType>
+
+            <!-- the max rb num is used for DFT beamforming weight matrix gen -->
+            <DLDFTMaxRBUsed>16</DLDFTMaxRBUsed>
+
+            <!-- the DL DFT beamforming weight normalization type, 0: normalzation with all antenna, 1: normalzation per antenna for max tx power -->
+            <DLDFTBeamWeightNormType>1</DLDFTBeamWeightNormType>
+
+            <!-- UL beamforming weight matrix gen algo choose -->
+            <!-- 0: ZF based weight gen algo, 1: dftcodebook based weight gen algo -->
+            <ULDFTBfWeightAlgoType>0</ULDFTBfWeightAlgoType>
+
+            <!-- beamforming weight matrix gen RB pick granularity-->
+            <ULBfWeightGenGranularity>1</ULBfWeightGenGranularity>
+
+            <!-- beamforming weight matrix gen RB pick out granularity -->
+            <ULBfWeightGenOutGranularity>0</ULBfWeightGenOutGranularity>
+
+            <!--  Number of Rx Antenna Vertiacl elements    [4, 8, 64] -->
+            <RxAntVertical>1</RxAntVertical>
+            <!--  Number of Rx Antenna Horizontal elements  [4, 8, 64] -->
+            <RxAntHorizontal>1</RxAntHorizontal>
+            <!--  Number of Rx Antenna Polarization Setting [1, 2] -->
+            <RxAntPolarization>1</RxAntPolarization>
+
+            <!-- the beamforming weight Fixed-point calibration -->
+            <BeamWeightFixPointQ>13</BeamWeightFixPointQ>
+
+            <!-- the DL/UL DFT beamforming weight reorder flag. 0: not reorder, 1:reorder by the anBFOutRemapTable -->
+            <DFTBFOutRemapVaild>0</DFTBFOutRemapVaild>
+
+            <!-- the DL/UL DFT beamforming weight reorder table -->
+            <DFTBFOutRemapTable>28, 24, 12, 8, 29, 25, 13, 9, 30, 26, 14, 10, 31, 27, 15, 11, 20, 16, 4, 0, 21, 17, 5, 1, 22, 18, 6, 2, 23, 19, 7, 3</DFTBFOutRemapTable>
+
+            <!--  Enable Beam Weight Processing all the time regardless of SRS channel present or not -->
+            <!--  This is mainly done for profiling purposes -->
+            <BeamWeightSrsBypass>0</BeamWeightSrsBypass>
+
+            <!--  Bypass entire Beam Weight generation function from pipeline -->
+            <!--  This is mainly done for profiling purposes -->
+            <BeamWeightBypass>0</BeamWeightBypass>
+
+            <!--  MIMO Beam Weight debug mode, 1- enable  0- disable  -->
+            <MimoBeamWeightDebugMode>0</MimoBeamWeightDebugMode>
+            <!--  MIMO Beam Weight debug mode test file name -->
+            <MimoBeamWeightDebugFileName>MimoBFWdbg32TR.bin</MimoBeamWeightDebugFileName>
+        </BeamWeight>
+        <Pusch>
+            <!-- Split processing for ULDecompression for PUSCH -->
+            <PuschDecompSplit>0</PuschDecompSplit>
+            <!-- Split processing for Channel Estimation for PUSCH -->
+            <PuschChanEstSplit>0</PuschChanEstSplit>
+
+            <!-- Split processing for MMSE for PUSCH -->
+            <PuschMmseSplit>0</PuschMmseSplit>
+
+            <!-- Split processing for LLR Rx for PUSCH -->
+            <PuschLlrRxSplit>0</PuschLlrRxSplit>
+
+            <!-- BBDEV FEC Decoder Early Termination disabled. If 1, then programmed number of iterations are run from MAC PHY API regardless of CRC PASS -->
+            <FecDecEarlyTermDisable>0</FecDecEarlyTermDisable>
+
+            <!-- FEC LDPC Decoder Number of iterations. If 0 then Number of iterations is set to 10. Else this value is used -->
+            <FecDecNumIter>1</FecDecNumIter>
+
+            <!-- Max number of parallel tasks that the UL FEC Decoder is split into. Number needs to be between 1 and 4. If wrong value entered, it will be defaulted to 1. -->
+            <!-- For hardware offload (using fpga / eAsic) it will be defaulted to 1.  -->
+            <FecDecSplit>1</FecDecSplit>
+
+            <!-- Bypass FEC Decoder. This is to mostly for some benchmarking purposes and is not real scenarios -->
+            <FecDecBypass>0</FecDecBypass>
+
+            <!-- LLR soft bit compression  -->
+            <!-- 0: disable, 1: enable -->
+            <ULLdpcLlrComp>0</ULLdpcLlrComp>
+
+            <!-- HARQ 4bits compression  -->
+            <!-- 0: disable, 1: enable -->
+            <ULLdpcHarqComp4b>1</ULLdpcHarqComp4b>
+
+            <!-- SNR Threshold for IRC. If -100, then IRC will be disabled -->
+            <IrcEnableThreshold>-100</IrcEnableThreshold>
+
+            <!-- PUSCH Noise Scaling -->
+            <!-- Used to scale measured noise to account for ChanEst errors for mu=0 and 2 layers. -->
+            <!-- Valid values = 1, 2, 3, 4 -->
+            <PuschNoiseScale>2</PuschNoiseScale>
+
+            <!-- frequency interpolation method for PUSCH CE -->
+            <!-- bit 0: 0: 1RB sinc interpolation 1: 4RB sinc interpolation -->
+            <!-- bit 1: 0: disable pre - interpolation 1: enable pre - interpolation -->
+            <CEInterpMethod>2</CEInterpMethod>
+
+            <!-- frequency offset compensation -->
+            <!-- 0: disable, 1: enable -->
+            <CEFocEnable>0</CEFocEnable>
+
+            <!-- frequency offset compensation granularity in terms of RE-->
+            <CEFocGranularity>768</CEFocGranularity>
+
+            <!-- time domain linear interpolation for PUSCH enable = 1, disable = 0-->
+            <PuschLinearInterpEnable>1</PuschLinearInterpEnable>
+
+            <!-- time domain linear interpolation granularity for PUSCH cell0, cell1 ... cellx respectively -->
+            <!-- PuschLinearInterpGranularityAll - Use this value for all Cells -->
+            <!-- PuschLinearInterpGranularity0 - Use this value for Cell0 -->
+            <!-- PuschLinearInterpGranularity1 - Use this value for Cell1 and so on -->
+            <!-- PuschLinearInterpGranularityAll will superced PuschLinearInterpGranularityX (where X is CellId) -->
+            <!-- 0 - Linear, 1 - Linear2, 2 - Linear3, 3 - Linear 4, 4 - Linear6, 5 - Use internal Doppler estimator to detect best value, 99 - nearest -->
+            <!-- use comma to separte the values if want to apply differnt granularity for differnt UE groups -->
+            <PuschLinearInterpGranularityAll>4</PuschLinearInterpGranularityAll>
+
+            <!-- Flag to enable/disable UL report of received PUSCH DMRS amplitude-->
+            <DMRSPwrReportEna>0</DMRSPwrReportEna>
+
+            <!-- Force Enable IRC: 0: Dont change pipeline. 1: Force Disable, 2: Force Enable -->
+            <!--  This is mainly done for profiling purposes -->
+            <EnableIrc>0</EnableIrc>
+
+            <!-- Enable delay spread estimation: 0: Disable. 1: Enable -->
+            <nEnableDelaySpreadEst>0</nEnableDelaySpreadEst>
+
+            <!--  Pusch int16 to fp16 conversion scale for SPR mode 2 -->
+            <nPuschSprCvtScale>1024</nPuschSprCvtScale>
+        </Pusch>
+        <Pucch>
+            <!-- Split processing for PUCCH -->
+            <PucchSplit>0</PucchSplit>
+            <!-- PUCCH F1 DFT scheme switch -->
+            <pucchF1DftSwitch>1</pucchF1DftSwitch>
+            <!-- PUCCH F01 AGC target of signal amplitude  -->
+            <PucchF01agcTarget>4096</PucchF01agcTarget>
+            <!-- PUCCH F234 AGC target of signal amplitude  -->
+            <PucchF234agcTarget>8192</PucchF234agcTarget>
+            <!-- PUCCH F0 int16 to fp16 conversion scale -->
+            <PucF0SprCvtScale>1024</PucF0SprCvtScale>
+            <!-- PUCCH F1 int16 to fp16 conversion scale -->
+            <PucF1SprCvtScale>128</PucF1SprCvtScale>
+            <!-- PUCCH F2 int16 to fp16 conversion scale -->
+            <PucF2SprCvtScale>1024</PucF2SprCvtScale>
+            <!-- PUCCH F3 int16 to fp16 conversion scale -->
+            <PucF3SprCvtScale>1024</PucF3SprCvtScale>
+            <!-- PUCCH F4 int16 to fp16 conversion scale -->
+            <PucF4SprCvtScale>1024</PucF4SprCvtScale>
+        </Pucch>
+        <Srs>
+            <!-- Split processing for SRS CE -->
+            <SrsCeSplit>0</SrsCeSplit>
+            <!-- SRS toc bypass for SRS DFT CE and SRS FFT CE [0 - default for the time domain detection, 1 - by pass the time domain detection]-->
+            <SrsTocBypass>0</SrsTocBypass>
+            <!--  SRS FFT Enable Switch based on bbdev capability [0 - legacy SRS processing using DFT/MMSE, 1 - SRS processing based on FFT bbdev capability (if capability doesn't exist fallback to legacy mode)] -->
+            <srsFftEnabled>0</srsFftEnabled>
+            <!--  SRS FFT SNR EST Method Switch      [1 - FD1, 2 - FD2] -->
+            <srsFftSNRestMethod>1</srsFftSNRestMethod>
+            <!--  SRS FFT SNR EST central_part_rs Switch     [0 - not enable, 1 - enable] -->
+            <srsFftSNRestCentralPartRs>1</srsFftSNRestCentralPartRs>
+            <!--  SRS FFT Taylor window filter Switch     [0 - disable, 1 - force enable, 2 - auto enable] -->
+            <srsFftTaylorWinFilter>2</srsFftTaylorWinFilter>
+            <!--  SRS AGC Switch     [0 - disable, 1 - enable] -->
+            <SrsAgcEnabled>1</SrsAgcEnabled>
+            <!--  SRS AGC Target     [0 - disable, 1 - enable] -->
+            <SrsAgcTarget>8192</SrsAgcTarget>
+            <!-- SRS DFT est result fill full Bandwidth [0 - disable, 1 - enable] -->
+            <SrsDftFillFullBand>0</SrsDftFillFullBand>
+            <!--  SRS AGC Method Choose  [1 - Method1(average), 2 - Method2(12pick)] -->
+            <SrsAgcMethodChoose>2</SrsAgcMethodChoose>
+            <!--  SRS int16 to fp16 conversion scale for SPR mode 2 -->
+            <SrsSprCvtScale>8192</SrsSprCvtScale>
+        </Srs>
+        <Prach>
+            <!-- Prach Detection Threshold. If non zero, computed value is used. -->
+            <prachDetectThreshold>0</prachDetectThreshold>
+            <!-- prach detect fo check -->
+            <!-- 0: disable, 1: enable -->
+            <prachDetectFoCheck>0</prachDetectFoCheck>
+            <!-- prach Threshold calculating method -->
+            <prachThresholdMethod>3</prachThresholdMethod>
+            <!-- prach detect window shift  default:0 -->
+            <prachDTWindowShift>0</prachDTWindowShift>
+            <!-- used to adjust the threshold. threshold = threshold * prachThrOffsetFactor /1000-->
+            <prachThrOffsetFactor>1259</prachThrOffsetFactor>
+            <!-- Number of Short Format combine :[1 2 3 4 6] -->
+            <prachMaxNcombine>-1</prachMaxNcombine>
+            <!-- prach FFT size selection: 0: larger size(2048/1024); 1: shorter size(1024/256) -->
+            <prachFFTSel>0</prachFFTSel>
+            <!--  PRACH IFFT Enable Switch based on bbdev capability [0 - legacy PRACH processing using soft IFFT, 1 - PRACH processing based on FFT bbdev capability (if capability doesn't exist fallback to legacy mode)] -->
+            <prachIfftEnabled>0</prachIfftEnabled>
+        </Prach>
+
+        <Urllc>
+            <!-- For URLLC cells, setting this field to 1 will split the FEC processing by 2 (half in software and half in hardware). Default: 0 Disabled -->
+            <UrllcPuschFecSplit>0</UrllcPuschFecSplit>
+
+            <!-- If there are URLLC Cells, this field indicates how many BBDEV Queue Ids to allocate for URLLC. All others are for eMBB. Default: 0 Disabled -->
+            <!-- The lower the queue ID, the higher the priority to process these -->
+            <UrllcBbdevIdEnd>0</UrllcBbdevIdEnd>
+        </Urllc>
+        <Common>
+            <!-- Phy Start / Stop feature. 0: Disable, 1: Enable -->
+            <!-- If enabled, L1 will start sending APIs as soon as first cell arrives. This is kept for backward compatibility -->
+            <phyStartStop>0</phyStartStop>
+            <!-- Memory Type used by L1 pipeline. 0: Heap, 1: DPDK memory -->
+            <phyMemoryType>1</phyMemoryType>
+        </Common>
+    </PhyVars>
+
+    <MlogVars>
+        <!-- Number of subframes are logged into Mlog. Needs to be a power of 2 -->
+        <MlogSubframes>128</MlogSubframes>
+        <!-- Number of Cores being logged into Mlog -->
+        <MlogCores>40</MlogCores>
+        <!-- Size of each subframe (in bytes) -->
+        <MlogSize>10000</MlogSize>
+    </MlogVars>
+
+    <!-- CPU Binding to Application Threads -->
+    <Threads>
+        <!-- System Threads (Single core id value): Core, priority, Policy [0: SCHED_FIFO 1: SCHED_RR 2:SCHED_OTHER] -->
+        <systemThread>2, 0, 0</systemThread>
+
+        <!-- WLS Mac-to-Phy Non Realtime API Processing Thread (Single core id value): Core, priority, Policy [0: SCHED_FIFO 1: SCHED_RR 2:SCHED_OTHER] -->
+        <!-- Mesages like PHY_CONFIG, PHY_START, PHY_STOP, PHY_SHUTDOWN, etc are processed on this core. All others are processed in BBU Cores -->
+        <wlsNrtThread>2, 0, 0</wlsNrtThread>
+
+        <!-- Timer Thread (Single core id value): Core, priority, Policy [0: SCHED_FIFO 1: SCHED_RR 2:SCHED_OTHER] -->
+        <timerThread>0, 96, 0</timerThread>
+
+        <!-- FPGA for LDPC Thread (Single core id value): Core, priority, Policy [0: SCHED_FIFO 1: SCHED_RR 2:SCHED_OTHER] -->
+        <FpgaDriverCpuInfo>3, 96, 0</FpgaDriverCpuInfo>
+
+        <!-- FPGA for Front Haul (FFT / IFFT) Thread (Single core id value): Core, priority, Policy [0: SCHED_FIFO 1: SCHED_RR 2:SCHED_OTHER] -->
+        <!-- This thread should be created for timer mode and hence can be same core as LDPC polling core -->
+        <FrontHaulCpuInfo>3, 96, 0</FrontHaulCpuInfo>
+
+        <!-- DPDK Radio Master Thread (Single core id value): Core, priority, Policy [0: SCHED_FIFO 1: SCHED_RR 2:SCHED_OTHER] -->
+        <radioDpdkMaster>2, 99, 0</radioDpdkMaster>
+
+        <!-- PhyStatsLog Thread: Core(same as system core), priority, Policy [0: SCHED_FIFO 1: SCHED_RR 2:SCHED_OTHER] -->
+        <phyStatsLogThread>4, 0, 2</phyStatsLogThread>
+    </Threads>
+
+    <BbuPoolConfig>
+        <!-- If set to 1, BBU Pool cores, return control to kernel after task is completed. Else it will always be in user space without going to sleep -->
+        <!-- It is mainly used when setting core to harware sleep mode and latency of sleep is not very deterministic -->
+        <!-- 0: polling mode; 1: call usleep to sleep (configurable period); 2: call sem_timedwait to sleep (~50us period); else: poling mode -->
+        <BbuPoolSleepEnable>1</BbuPoolSleepEnable>
+        <!-- Set usleep period if BbuPoolSleepEnable is 1. Valid value is 1~255, unit micro-second. Value 0 means use default setting, which is 10us now -->
+        <BbuPoolSleepPeriod>0</BbuPoolSleepPeriod>
+        <!-- Set BBU Pool thread suspend period if suspend thread API is called. Valid value is 1~65535, unit micro-second. Value 0 means use default setting, which is 550us now -->
+        <BbuPoolSuspendPeriod>0</BbuPoolSuspendPeriod>
+
+        <!-- Priority Of All BBU Cores -->
+        <BbuPoolThreadCorePriority>94</BbuPoolThreadCorePriority>
+        <!-- Policy for All BBU Cores [0: SCHED_FIFO 1: SCHED_RR] -->
+        <BbuPoolThreadCorePolicy>0</BbuPoolThreadCorePolicy>
+
+        <!-- BBUPool Worker Thread Cores (Bit mask of all cores that are used for BBU Pool in Decimal or Hex [needs to start with "0x"]) -->
+        <BbuPoolThreadDefault_0_63>0x00000000FC000FC0</BbuPoolThreadDefault_0_63>
+        <BbuPoolThreadDefault_64_127>0x0</BbuPoolThreadDefault_64_127>
+        <BbuPoolThreadDefault_128_191>0x0</BbuPoolThreadDefault_128_191>
+        <BbuPoolThreadDefault_192_255>0x0</BbuPoolThreadDefault_192_255>
+
+        <!-- BBUPool Worker Thread Cores dedicated for SRS processing in case of Massive MIMO Configs. Mask needs to be a subset of BbuPoolThreadDefault_0_63 or BbuPoolThreadDefault_64_127 -->
+        <!-- (Bit mask of all cores that are used for BBU Pool in Decimal or Hex [needs to start with "0x"]) -->
+        <BbuPoolThreadSrs_0_63>0x0</BbuPoolThreadSrs_0_63>
+        <BbuPoolThreadSrs_64_127>0x0</BbuPoolThreadSrs_64_127>
+        <BbuPoolThreadSrs_128_191>0x0</BbuPoolThreadSrs_128_191>
+        <BbuPoolThreadSrs_192_255>0x0</BbuPoolThreadSrs_192_255>
+
+        <!-- BBUPool Worker Thread Cores dedicated for DL beam  processing in case of Massive MIMO Configs. Mask needs to be a subset of BbuPoolThreadDefault_0_63 or BbuPoolThreadDefault_64_127 -->
+        <!-- (Bit mask of all cores that are used for BBU Pool in Decimal or Hex [needs to start with "0x"]) -->
+        <BbuPoolThreadDlbeam_0_63>0x0</BbuPoolThreadDlbeam_0_63>
+        <BbuPoolThreadDlbeam_64_127>0x0</BbuPoolThreadDlbeam_64_127>
+        <BbuPoolThreadDlbeam_128_191>0x0</BbuPoolThreadDlbeam_128_191>
+        <BbuPoolThreadDlbeam_192_255>0x0</BbuPoolThreadDlbeam_192_255>
+
+        <!-- URLLC Processing Thread (Bit mask of all cores that are used in Decimal or Hex [needs to start with "0x"]) -->
+        <BbuPoolThreadUrllc>0x100</BbuPoolThreadUrllc>
+
+        <!-- The number of elements per queue (for new scheduler only). Values need to be comma seperated and a max of 10 queues. -->
+        <eBbuPoolNumQueue>1024, 1024, 1024, 1024</eBbuPoolNumQueue>
+
+        <!-- Number of ping pong context to use for scheduler. THis is needed mainly for TDD scenarios so UL is prioritized over DL. Range [1-4] -->
+        <eBbuPoolNumContext>1</eBbuPoolNumContext>
+
+        <!-- Maximum Number of contexts to fetch by each consumer thread. This is used only if eBbuPoolNumContext>1. Range [1-eBbuPoolNumContext] -->
+        <eBbuPoolMaxContextFetch>1</eBbuPoolMaxContextFetch>
+
+        <!-- Enable internal print of statistics from New Scheduler Library. 0: Off, 1: On. -->
+        <eBbuPoolPrintFlag>0</eBbuPoolPrintFlag>
+
+        <!-- Enable FEC Only Task List for 5GNR L1 Application. This is used to test the FEC Enq/Deq Operations with hardware. 0: Off, 1: On. -->
+        <eBbuPoolFecOnlyList>0</eBbuPoolFecOnlyList>
+
+        <!-- Number of numa nodes from which BBUPool worker thread cores are allocated. Range [1-2] -->
+        <eBbuPoolNumNumaNode>1</eBbuPoolNumNumaNode>
+
+        <!-- Numa node affinity of each cell (Bit mask of all cell in Decimal or Hex [needs to start with "0x"]) -->
+        <eBbuPoolNumaNodeAffinityMask0>0x0</eBbuPoolNumaNodeAffinityMask0>
+        <eBbuPoolNumaNodeAffinityMask1>0x0</eBbuPoolNumaNodeAffinityMask1>
+
+        <!-- 0: eBBUPool stops when pipeline not completed happens (default value); -->
+        <!-- others: eBBUPool invalids the waiting events for imcompleted pipeline and continues to run, the unsent phy2mac wls blocks will be cached in L1 for further slots' use -->
+        <eBbuPoolNonStopMode>0</eBbuPoolNonStopMode>
+    </BbuPoolConfig>
+
+    <Fpga>
+        <!-- Time advance added in FPGA from PPS. This is to sync with RRU -->
+        <FrontHaulTimeAdvance>7450</FrontHaulTimeAdvance>
+
+        <!-- Number of ports used from FPGA. 4Ports: 462607 (0x70F0F) 2Ports: 459523 (0x70303) -->
+        <nEthPorts>462607</nEthPorts>
+        <!-- phase compensation enable flag 0:disablle 1:enable -->
+        <nPhaseCompFlag>0</nPhaseCompFlag>
+
+        <!-- Version Numbers on FPGA tested with each release -->
+        <!-- FEC Version for mmWave -->
+        <nFecFpgaVersionMu3>0x20010900</nFecFpgaVersionMu3>
+
+        <!-- FEC Version for sub3 and sub6 -->
+        <nFecFpgaVersionMu0_1>0x0423D420</nFecFpgaVersionMu0_1>
+
+        <!-- Front Haul Version for mmWave -->
+        <nFhFpgaVersionMu3>0x8001000F</nFhFpgaVersionMu3>
+
+        <!-- Front Haul Version for sub3 and sub6 -->
+        <nFhFpgaVersionMu0_1>0x90010008</nFhFpgaVersionMu0_1>
+    </Fpga>
+
+    <StreamStats>
+        <!-- If this is set to 1, L1 statistics are streamed over UDP to the desitnation address and port -->
+        <StreamStats>0</StreamStats>
+
+        <!-- Destination IP Address to stream the stats -->
+        <StreamIp>127.0.0.1</StreamIp>
+
+        <!-- IP Port used to create UDP socket -->
+        <StreamPort>2000</StreamPort>
+    </StreamStats>
+
+    <InfoTraceTool>
+        <!-- If this is set to 1, Info Trace Tool will be enable, 0 means disable -->
+        <nInfoTraceToolEn>0</nInfoTraceToolEn>
+
+        <!-- If this is set to 1, Info Trace Tool will catch DL APIs, 0 means won't catch -->
+        <nApisDlEn>1</nApisDlEn>
+
+        <!-- If this is set to 1, Info Trace Tool will catch UL APIs, 0 means won't catch -->
+        <nApisUlEn>1</nApisUlEn>
+
+        <!-- If this is set to 1, Info Trace Tool will catch PDSCH payload APIs, 0 means won't catch -->
+        <nApisPdschPayloadEn>0</nApisPdschPayloadEn>
+
+        <!-- If this is set to 1, Info Trace Tool will catch PUSCH payload APIs, 0 means won't catch -->
+        <nApisPuschPayloadEn>0</nApisPuschPayloadEn>
+
+        <!-- If this is set to 1, Info Trace Tool will print APIs detail in apis.txt, 0 means won't print -->
+        <nApisPrintEn>0</nApisPrintEn>
+
+        <!-- Info Trace Tool Threads (Single core id value): Core, priority, Policy [0: SCHED_FIFO 1: SCHED_RR 2:SCHED_OTHER] -->
+        <InfoTraceToolThread>1, 99, 0</InfoTraceToolThread>
+
+        <!-- Destination IP Address to send Info -->
+        <nInfoTraceToolSocketIP>127.0.0.1</nInfoTraceToolSocketIP>
+
+        <!-- IP Port used to create UDP socket -->
+        <nInfoTraceToolSocketPort>10000</nInfoTraceToolSocketPort>
+
+        <!-- Bit map of cell ID that whether trace log is enabled on this cell -->
+        <nTraceCellMapping>0xFFFFFFFF</nTraceCellMapping>
+    </InfoTraceTool>
+
+    <PhyTraceLog>
+        <!-- 32-bit hex bitmask to enable or disable logprint of different levels and modules, currently BIT16-BIT31 not used -->
+        <!-- BIT15: LEVEL_ERROR, BIT14:LEVEL_WARNING, BIT13:LEVEL_LOG, BIT12: LEVEL_DEBUG, BIT11: LEVEL_INFO, BIT10,BIT9 not used-->
+        <!-- BIT8: SSB module, BIT7: PRACH module, BIT6: SRS module, BIT5: CSIRS module, BIT4: PTRS module-->
+        <!-- BIT3: PDCCH module, BIT2: PUCCH module, BIT1: PDSCH module, BIT0: PUSCH module -->
+        <!-- default 0xE1FF indicates that all levels and modules logprints are enabled by default, except LEVEL_DEBUG and LEVEL_INFO -->
+        <phytracelevelmodumask>0xE1FF</phytracelevelmodumask>
+
+        <!-- 64-bit hex bitmask to enable or disable PUSCH internal moudules' logprint -->
+        <phytracesubmodumask0>0x1</phytracesubmodumask0>
+
+        <!-- 64-bit hex bitmask to enable or disable PDSCH internal moudules' logprint -->
+        <phytracesubmodumask1>0x1</phytracesubmodumask1>
+
+        <!-- 64-bit hex bitmask to enable or disable PUCCH internal moudules' logprint -->
+        <phytracesubmodumask2>0x1</phytracesubmodumask2>
+
+        <!-- 64-bit hex bitmask to enable or disable PDCCH internal moudules' logprint -->
+        <phytracesubmodumask3>0x1</phytracesubmodumask3>
+
+        <!-- 64-bit hex bitmask to enable or disable PTRS internal moudules' logprint -->
+        <phytracesubmodumask4>0x1</phytracesubmodumask4>
+
+        <!-- 64-bit hex bitmask to enable or disable CSI-RS internal moudules' logprint -->
+        <phytracesubmodumask5>0x1</phytracesubmodumask5>
+
+        <!-- 64-bit hex bitmask to enable or disable SRS internal moudules' logprint -->
+        <phytracesubmodumask6>0x1</phytracesubmodumask6>
+
+        <!-- 64-bit hex bitmask to enable or disable PRACH internal moudules' logprint -->
+        <phytracesubmodumask7>0x1</phytracesubmodumask7>
+
+        <!-- 64-bit hex bitmask to enable or disable SSB internal moudules' logprint -->
+        <phytracesubmodumask8>0x1</phytracesubmodumask8>
+
+        <!-- Tracelog Threads (Single core id value): Core, priority, Policy [0: SCHED_FIFO 1: SCHED_RR 2:SCHED_OTHER] -->
+        <TracelogThread>0, 0, 0</TracelogThread>
+    </PhyTraceLog>
+
+    <CustomerField>
+        <!-- Used to adapt to RRU, need to scale down the amplitude to adapt to different vendors' RRU -->
+        <!-- float variable, and must be 0~1. default value 1.0. -->
+        <dliq_fscale>1.0</dliq_fscale>
+
+        <!-- make RRU only send C-P for first occasion, fix ecpri packet size and mbuf issue -->
+        <rru_workaround>0</rru_workaround>
+    </CustomerField>
+
+    <DebugField>
+        <!-- Used for debugging purpose configurations -->
+        <!-- Number of slots to run after setting gStop to stop PHY, default 300 -->
+        <gStopSlotsBeforePhyStop>300</gStopSlotsBeforePhyStop>
+
+        <!-- stopping PHY when Incorrect PRACH preamble detected, for debugging purpose, set to the number of wrong PRACH preamble to stop PHY -->
+        <prachIncorrectPreamCrash>0</prachIncorrectPreamCrash>
+        <!-- Expected min/max preamble -->
+        <expectedPreamIdMax>0</expectedPreamIdMax>
+        <expectedPreamIdMin>0</expectedPreamIdMin>
+
+        <!-- stopping PHY when PUSCH CRC happens, for debugging purpose, bit mask based on PUSCH_SNR_BASED_CRASH etc. defined in the code -->
+        <puschCrcFailCrashFlag>0</puschCrcFailCrashFlag>
+
+        <!-- Number of PUSCH CRCs to stop PHY -->
+        <puschCrcFailCntForCrash>0</puschCrcFailCntForCrash>
+
+        <!-- stopping PHY when continuous PUSCH CRC happens -->
+        <puschContCrcFailsCrashCondition>0</puschContCrcFailsCrashCondition>
+
+        <!-- min/max PUSCH TA threshold for stopping PHY, value 0-255 -->
+        <maxPuschTaForCrash>0</maxPuschTaForCrash>
+        <minPuschTaForCrash>0</minPuschTaForCrash>
+
+        <!-- min/max PUSCH SNR threshold for stopping PHY, float variable, default value 1.0 -->
+        <maxPuschSnrForCrash>1.0</maxPuschSnrForCrash>
+        <minPuschSnrForCrash>1.0</minPuschSnrForCrash>
+
+        <!-- min/max PUSCH RB size threshold for stopping PHY, value 0-273 -->
+        <maxPuschRBSizeForCrash>0</maxPuschRBSizeForCrash>
+        <minPuschRBSizeForCrash>0</minPuschRBSizeForCrash>
+        <!-- min/max PUSCH MCS threshold for stopping PHY, value 0-28 -->
+        <maxPuschMCSForCrash>0</maxPuschMCSForCrash>
+        <minPuschMCSForCrash>0</minPuschMCSForCrash>
+        <!-- min/max PUSCH Num Layer threshold for stopping PHY, value 0-4 -->
+        <maxPuschLayersForCrash>0</maxPuschLayersForCrash>
+        <minPuschLayersForCrash>0</minPuschLayersForCrash>
+        <!-- min/max PUSCH RV Index threshold for stopping PHY, value 0-3 -->
+        <maxPuschRVForCrash>0</maxPuschRVForCrash>
+        <minPuschRVForCrash>0</minPuschRVForCrash>
+        <!-- PUSCH MCS table for stopping PHY, value 0/1 -->
+        <nPuschMCSTableForCrash>0</nPuschMCSTableForCrash>
+        <!-- Print PUSCH stats for debug purpose, 0: disable 1: enable -->
+        <PuschStatsPrintFlag>0</PuschStatsPrintFlag>
+        <!-- Print SRS stats for debug purpose, 0: disable 1: enable -->
+        <SrsStatsPrintFlag>0</SrsStatsPrintFlag>
+    </DebugField>
+</PhyConfig>
+

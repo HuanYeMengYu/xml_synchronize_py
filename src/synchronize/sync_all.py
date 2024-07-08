@@ -8,8 +8,15 @@ from . import recover_sequence
 from . import has_same_tag_element
 from . import delete_all_comment
 from . import sync_comment
+from . import sync_declaration
+from . import check_xml_with_xmllint
 
 def sync_all(sync_value_file, sample_xml_path, dst_xmls_path):
+
+    # 检查源xml文件是否符合规范
+    check = check_xml_with_xmllint.check_xml_with_xmllint(sample_xml_path)
+    if check==0:
+        return
 
     src_doc = etree.parse(sample_xml_path)
     src_root = src_doc.getroot()
@@ -24,6 +31,11 @@ def sync_all(sync_value_file, sample_xml_path, dst_xmls_path):
 
     sync_elems = get_sync_elems.get_sync_elems(sync_value_file)
     for dst_xml_path in dst_xmls_path:
+
+        # 检查目标xml文件是否符合规范
+        check = check_xml_with_xmllint.check_xml_with_xmllint(dst_xml_path)
+        if check==0:
+            continue
         dst_doc = etree.parse(dst_xml_path)
         dst_root = dst_doc.getroot()
 
@@ -49,11 +61,10 @@ def sync_all(sync_value_file, sample_xml_path, dst_xmls_path):
 
         # 写入同步后的xml文件; 按阅览模式打印; 打印包括编码格式的声明节点
         dst_doc.write(dst_xml_path, pretty_print=True, encoding=xml_encoding, xml_declaration=True)
-        # 调用系统命令
+        # 同步xml声明
+        sync_declaration.sync_declaration(sample_xml_path, dst_xml_path)
+        # 调用系统命令，把xml格式化
         os.system(f"xmllint --format {dst_xml_path} -o {dst_xml_path}")
-
-    # 写入同步后的xml文件; 按阅览模式打印; 打印包括编码格式的声明节点
-    src_doc.write(sample_xml_path, pretty_print=True, encoding=xml_encoding, xml_declaration=True)
 
     # 格式化样本xml文件
     os.system(f"xmllint --format {sample_xml_path} -o {sample_xml_path}")

@@ -3,15 +3,6 @@
 <!--   <COPYRIGHT_TAG>                                                                       -->
 <!--                                                                                         -->
 <CellConfig>
-  <add1>
-    <son1>son1</son1>
-    <son2>son2</son2>
-    <son3>
-      <grandson1>grandson1</grandson1>
-      <grandson2>grandson2</grandson2>
-      <grandson3>grandson3</grandson3>
-    </son3>
-  </add1>
   <cellId>1</cellId>
   <nDMRSTypeAPos>666</nDMRSTypeAPos>
   <nPhyCellId>11</nPhyCellId>
@@ -35,15 +26,6 @@
   <slotCfg3>0,0,0,0,0,0,0,0,0,0,0,2,2,1</slotCfg3>
   <slotCfg4>1,1,1,1,1,1,1,1,1,1,1,1,1,1</slotCfg4>
   <ssbCfg>
-    <add2>
-      <son4>son4</son4>
-      <son5>son5</son5>
-      <son6>
-        <grandson4>grandson4</grandson4>
-        <grandson5>grandson5</grandson5>
-        <grandson6>grandson6</grandson6>
-      </son6>
-    </add2>
     <nSSBPwr>666</nSSBPwr>
     <nSSBAbsFre>4804320</nSSBAbsFre>
     <nSSBPeriod>2</nSSBPeriod>
@@ -96,24 +78,6 @@
   <enablePucch>1</enablePucch>
   <enableSr>1</enableSr>
   <enableCsi>1</enableCsi>
-  <!-- comment chenzhaoqing -->
-  <chenzhaoqing>
-    <!-- comment studentcode -->
-    <studentCode>U202215409</studentCode>
-    <!-- comment age -->
-    <age>20</age>
-    <!-- comment major -->
-    <major>cumputerScience</major>
-    <!-- comment friend -->
-    <freind>
-      <!-- comment wang -->
-      <wang>wang</wang>
-      <!-- comment li -->
-      <li>li</li>
-      <!-- comment zhao -->
-      <zhao>zhao</zhao>
-    </freind>
-  </chenzhaoqing>
   <pucchCfg>
     <!-- the max is 160 when u = 1 -->
     <srPeriod>160</srPeriod>
@@ -237,14 +201,6 @@
   <nUrllcCapable>0</nUrllcCapable>
   <nUrllcMiniSlotMask>257</nUrllcMiniSlotMask>
   <nUrllcRBStart>224</nUrllcRBStart>
-  <ConfiguredGrant>
-    <!-- 0:CG disable, 1:CG type1, 2:CG type2, 3:Mixed CG type-->
-    <CGType>3</CGType>
-    <!-- unit is symbol in periodicity of 38331-->
-    <periodicity>140</periodicity>
-    <!-- L of RIV in 6.1.2.2.2 in 38214-->
-    <rbSize>3</rbSize>
-  </ConfiguredGrant>
   <SemiPersistentScheduling>
     <!-- 0:SPS disable, 1:SPS enable, 2: Mixed SPS -->
     <SPSFlag>2</SPSFlag>
