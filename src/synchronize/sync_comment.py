@@ -1,24 +1,24 @@
 from lxml import etree
 import copy
-from . import get_index
-from . import get_path
+from . import get_node_index
+from . import get_node_path
 
 def sync_comment(src_elem, dst_elem):
     
-    # 获取所有子孙标签
+    # Get all descendant tags
     src_children = src_elem.iterdescendants()
-    # 遍历所有子孙标签
+    # Traverse all descendant tags
     for src_child in src_children:
         if isinstance(src_child, etree._Comment):
             src_parent = src_child.getparent()
-            src_parent_path = get_path.get_path(src_parent)
-            index = get_index.get_index(src_child)
+            src_parent_path = get_node_path.get_node_path(src_parent)
+            index = get_node_index.get_node_index(src_child)
             dst_parents = dst_elem.getroottree().xpath(src_parent_path)
             dst_parent = dst_parents[0]
             dst_parent.insert(index, copy.deepcopy(src_child))
 
 if __name__ == '__main__':
-    # 示例 XML 字符串
+    # Example XML string
     src_xml_string = '''
     <root>
         <child1>
@@ -56,12 +56,12 @@ if __name__ == '__main__':
         </child2>
     </root>'''
 
-    # 解析 XML 字符串为 Element 对象
+    # Parse XML string into Element objects
     src_root = etree.fromstring(src_xml_string)
     dst_root = etree.fromstring(dst_xml_string)
 
-    # 同步注释节点
+    # Synchronize Comment Node
     sync_comment(src_root, dst_root)
 
-    # 打印同步后的目标 XML
+    # Print the synchronized target XML
     print(etree.tostring(dst_root, pretty_print=True, encoding='unicode'))

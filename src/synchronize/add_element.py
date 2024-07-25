@@ -1,23 +1,23 @@
 from lxml import etree
-from . import get_index
-from . import get_path
+from . import get_node_index
+from . import get_node_path
 import copy
 
 def sync_add(src_elem, dst_elem):
-    # 获取所有子孙标签
+    # Get all descendant tags
     src_children = src_elem.iterdescendants()
 
-    # 遍历所有子孙标签
+    # Traverse all descendant tags
     for src_child in src_children:
 
         if isinstance(src_child, etree._Comment):
             continue
 
-        # 该标签是否已经存在
+        # Does the tag already exist?
         flag_exist = False
 
         src_parent = src_child.getparent()
-        src_parent_path = get_path.get_path(src_parent)
+        src_parent_path = get_node_path.get_node_path(src_parent)
         dst_parents = dst_elem.getroottree().xpath(src_parent_path)
         dst_parent = dst_parents[0]
         dst_children = dst_parent.iterchildren()
@@ -27,12 +27,12 @@ def sync_add(src_elem, dst_elem):
                     flag_exist = True
                     break
 
-        # 已经存在对应标签则跳过
+        # If the corresponding tag already exists, skip it
         if flag_exist:
             continue
         else:
-            print(f"添加标签{get_path.get_path(src_child)}")
-            index = get_index.get_index(src_child)
+            print(f"Add tag {get_node_path.get_node_path(src_child)}")
+            index = get_node_index.get_node_index(src_child)
             dst_parent.insert(index, copy.deepcopy(src_child))
 
 if __name__ == '__main__':

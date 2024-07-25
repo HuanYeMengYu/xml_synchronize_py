@@ -1,22 +1,22 @@
 from lxml import etree
-from . import get_index
-from . import get_path
+from . import get_node_index
+from . import get_node_path
 from . import get_element_index
 import copy
 
 def recover_sequence(src_elem, dst_elem):
-    # 获取所有子孙标签
+    # Get all descendant tags
     src_children = src_elem.iterdescendants()
 
-    # 遍历所有子孙标签
+    # Traverse all descendant tags
     for src_child in src_children:
         if isinstance(src_child, etree._Element):
 
             src_parent = src_child.getparent()
-            src_parent_path = get_path.get_path(src_parent)
+            src_parent_path = get_node_path.get_node_path(src_parent)
             dst_parents = dst_elem.getroottree().xpath(src_parent_path)
             dst_parent = dst_parents[0]
-            # 获取正确下标
+            # Get the correct index
             index = get_element_index.get_element_index(src_child)
             dst_children = dst_parent.iterchildren()
             for dst_child in dst_children:
@@ -27,7 +27,7 @@ def recover_sequence(src_elem, dst_elem):
                         break
 
 if __name__ == '__main__':
-    # 测试用例
+    # Test Cases
     src_xml_str = """
     <root>
         <!-- Comment1 -->
@@ -62,12 +62,12 @@ if __name__ == '__main__':
     </root>
     """
 
-    # 解析XML
+    # Parsing XML
     src_tree = etree.XML(src_xml_str)
     dst_tree = etree.XML(dst_xml_str)
 
-    # 调用函数
+    # Call functions
     recover_sequence(src_tree, dst_tree)
 
-    # 输出调整后的XML
+    # Output adjusted XML
     print(etree.tostring(dst_tree, pretty_print=True).decode())

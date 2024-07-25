@@ -1,16 +1,16 @@
 from lxml import etree
-from . import get_path
+from . import get_node_path
 from . import get_sync_elems
 
 def sync_value(src_elem, dst_elem, sync_elems):
-    # 同步指定的元素的数据
+    # Synchronize the content of the specified element
     for elem_name in sync_elems:
         find_src_elems = src_elem.xpath(f'//{elem_name}')
         find_dst_elems = dst_elem.xpath(f'//{elem_name}')
         for find_src_elem in find_src_elems:
             for find_dst_elem in find_dst_elems:
-                if get_path.get_path(find_src_elem) == get_path.get_path(find_dst_elem):
-                    print(f"同步标签数据{get_path.get_path(find_src_elem)}")
+                if get_node_path.get_node_path(find_src_elem) == get_node_path.get_node_path(find_dst_elem):
+                    print(f"Synchronize tag data {get_node_path.get_node_path(find_src_elem)} : {find_src_elem.text}")
                     find_dst_elem.text = find_src_elem.text
 
 if __name__ == '__main__':

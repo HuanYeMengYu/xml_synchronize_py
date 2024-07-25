@@ -9,7 +9,7 @@ def delete_all_comment(root):
             child.getparent().remove(child)
 
 if __name__ == "__main__":
-    # XML 内容作为字符串
+    # XML content as a string
     xml_string = '''
     <root>
         <!-- This is the first comment -->
@@ -33,7 +33,7 @@ if __name__ == "__main__":
     </root>
     '''
 
-    # 解析 XML 字符串
+    # Parsing an XML string
     doc = etree.fromstring(xml_string)
 
     delete_all_comment(doc)

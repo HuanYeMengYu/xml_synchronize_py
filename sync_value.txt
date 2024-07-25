@@ -1,1 +1,1 @@
-phyBlockSize
+wls_dev_name

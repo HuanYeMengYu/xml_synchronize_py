@@ -1,24 +1,26 @@
 import os
 
 def find_files(sample_file_path, directory_paths):
-    # 获取样本文件名
+    # Get sample file name
     sample_file_name = os.path.basename(sample_file_path)
-    
-    # 存储结果的列表
+
+    # Stores the result file list
     result_files = []
 
-    # 遍历每个目录
+    # Traverse each directory
     for directory_path in directory_paths:
-        # 遍历目录及其子目录
+        # Traverse a directory and its subdirectories
         for root, dirs, files in os.walk(directory_path):
-            # 检查当前目录中是否有与样本文件同名的文件
+            # Check if there is a file with the same name as the sample file in the current directory
             for file in files:
                 if file == sample_file_name:
-                    # 将找到的文件路径添加到结果列表中
+                    # Add the found file path to the result list
                     result_files.append(os.path.join(root, file))
     return result_files
 
 if __name__ == '__main__':
-    files = find_files("cell1.xml", "../../resource/benchmark/SmallCell", "../../resource/benchmark/MacroCell/MU1Peak2Avg")
+    paths = ["../resource/benchmark/HTOFF_todo/"]
+    files = find_files("cell1.xml", paths)
+    print("--------------------------------")
     for file in files:
         print(file)
