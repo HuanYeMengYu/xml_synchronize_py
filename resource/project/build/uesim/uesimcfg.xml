@@ -1,36 +1,20 @@
-<?xml version="1.0" ?>
+<?xml version="1.0"?>
+<!--                                                                                         -->
 <!--   <COPYRIGHT_TAG>                                                                       -->
 <!--                                                                                         -->
-<!-- new declairation -->
 <UeSimConfig>
     <version>24.03</version>
+
     <Api>
-        <wls_dev_name>wls666666666666666666666666</wls_dev_name>
+        <wls_dev_name>wls0</wls_dev_name>
         <!-- MAC managed WLS Memory size. This is used for all API buffer allocations -->
         <wlsMacMemorySize>0x3EA80000</wlsMacMemorySize>
         <!-- L1 managed WLS Memory size. This is used for SRS weight storage. For 64x64 usecase and 6 cells (with 512 users per cell) use 0x18000000 -->
         <wlsPhyMemorySize>0x0</wlsPhyMemorySize>
     </Api>
+
     <!-- This section defines all DPDK related parameters used for DPDK initialization -->
     <DPDK>
-        <company>
-            <department1>
-                <employee1>
-                    <name1>John Doe</name1>
-                    <position1>Engineer</position1>
-                </employee1>
-                <employee2>
-                    <name2>Jane Smith</name2>
-                    <position2>Manager</position2>
-                </employee2>
-            </department1>
-            <department2>
-                <employee3>
-                    <name3>Emily Johnson</name3>
-                    <position3>Analyst</position3>
-                </employee3>
-            </department2>
-        </company>
         <!--  name of DPDK memory zone, needs to align between primary and secondary process -->
         <dpdkFilePrefix>gnb0</dpdkFilePrefix>
         <!--  DPDK memory size allocated from hugepages [MB]  [default: 20480] -->
@@ -38,6 +22,11 @@
         <!--  DPDK IOVA Mode used for DPDK initialization. If 0, then PA mode. Else VA Mode -->
         <dpdkIovaMode>0</dpdkIovaMode>
         <!--  DPDK IOVA Mode used for DPDK initialization. If 0, then PA mode. Else VA Mode -->
+        <DDPQueueConfig>
+            <ddpQueNum>1</ddpQueNum>
+            <ddpQueId0>0</ddpQueId0>
+            <ddpQueId1>0</ddpQueId1>
+        </DDPQueueConfig>
         <FlowConfig>
             <FlowNum>0</FlowNum>
             <!-- flow0 config -->
@@ -65,9 +54,11 @@
             <pcieAddr>0000:86:02.1</pcieAddr>
             <mempoolName>fast_pkt1</mempoolName>
         </GtpuResource>
+
         <DPDKSharedResource>
             <!-- number of the set of shared ports and corresponding memory, maximum 4, if none, set to 0 -->
             <numSharedResource>2</numSharedResource>
+
             <!--  Shared Resource Config 0 -->
             <SharedResource0>
                 <!-- DPDK memory pool name, if don't want to init memory pool, set name to 0 -->
@@ -107,6 +98,7 @@
                 <!-- DPDK crypt QAT virtual pci-e address-->
                 <dpdkQatAddr30>0000:33:01.3</dpdkQatAddr30>
             </SharedResource0>
+
             <!--  Shared Resource Config 1 -->
             <SharedResource1>
                 <!-- DPDK memory pool name, if don't want to init memory pool, set name to 0 -->
@@ -146,6 +138,7 @@
                 <!-- DPDK crypt QAT virtual pci-e address-->
                 <dpdkQatAddr31>0000:33:01.7</dpdkQatAddr31>
             </SharedResource1>
+
             <!--  Shared Resource Config 2 -->
             <SharedResource2>
                 <!-- DPDK memory pool name, if don't want to init memory pool, set name to 0 -->
@@ -185,6 +178,7 @@
                 <!-- DPDK crypt QAT virtual pci-e address-->
                 <dpdkQatAddr32>0000:33:01.3</dpdkQatAddr32>
             </SharedResource2>
+
             <!--  Shared Resource Config 3 -->
             <SharedResource3>
                 <!-- DPDK memory pool name, if don't want to init memory pool, set name to 0 -->
@@ -226,42 +220,55 @@
             </SharedResource3>
         </DPDKSharedResource>
     </DPDK>
+
     <!-- CPU Binding to Application Threads -->
     <Threads>
         <!-- System Threads (Single core id value): Core, priority, Policy [0: SCHED_FIFO 1: SCHED_RR] -->
         <systemThread>0, 0, 0</systemThread>
+
         <!-- Timer Thread (Single core id value): Core, priority, Policy [0: SCHED_FIFO 1: SCHED_RR] -->
         <timingThread>2, 96, 0</timingThread>
         <!-- Urllc Thread (Single core id value): Core, priority, Policy [0: SCHED_FIFO 1: SCHED_RR] -->
         <urllcThread>16, 96, 0</urllcThread>
         <!-- cryptoThread Thread (Single core id value): Core, priority, Policy [0: SCHED_FIFO 1: SCHED_RR] -->
         <cryptoThread>27, 96, 0</cryptoThread>
+
     </Threads>
+
     <BbuPoolConfig>
         <!-- If set to 1, BBU Pool cores, return control to kernel after task is completed. Else it will always be in user space without going to sleep -->
         <!-- It is mainly used when setting core to harware sleep mode and latency of sleep is not very deterministic -->
         <BbuPoolSleepEnable>1</BbuPoolSleepEnable>
+
         <!-- Priority Of All BBU Cores -->
         <BbuPoolThreadCorePriority>94</BbuPoolThreadCorePriority>
         <!-- Policy for All BBU Cores [0: SCHED_FIFO 1: SCHED_RR] -->
         <BbuPoolThreadCorePolicy>0</BbuPoolThreadCorePolicy>
+
         <!-- BBUPool Worker Thread Cores (Bit mask of all cores that are used for BBU Pool in Decimal or Hex [needs to start with "0x"]) -->
         <BbuPoolThreadCoreMask0>0xF0</BbuPoolThreadCoreMask0>
         <BbuPoolThreadCoreMask1>0x0</BbuPoolThreadCoreMask1>
         <BbuPoolThreadCoreMask2>0x0</BbuPoolThreadCoreMask2>
         <BbuPoolThreadCoreMask3>0x0</BbuPoolThreadCoreMask3>
+
         <!-- The number of elements per queue (for new scheduler only). Values need to be comma seperated and a max of 10 queues. -->
         <eBbuPoolNumQueue>1024, 1024, 1024, 1024</eBbuPoolNumQueue>
+
         <!-- Number of ping pong context to use for scheduler. THis is needed mainly for TDD scenarios so UL is prioritized over DL. Range [1-4] -->
         <eBbuPoolNumContext>1</eBbuPoolNumContext>
+
         <!-- Maximum Number of contexts to fetch by each consumer thread. This is used only if eBbuPoolNumContext>1. Range [1-eBbuPoolNumContext] -->
         <eBbuPoolMaxContextFetch>1</eBbuPoolMaxContextFetch>
+
         <!-- Enable internal print of statistics from New Scheduler Library. 0: Off, 1: On. -->
         <eBbuPoolPrintFlag>0</eBbuPoolPrintFlag>
+
         <!-- Enable FEC Only Task List for 5GNR L1 Application. This is used to test the FEC Enq/Deq Operations with hardware. 0: Off, 1: On. -->
         <eBbuPoolFecOnlyList>0</eBbuPoolFecOnlyList>
+
         <!-- Thread usleep period (us), veriable unit uint8_t the max value is 256, 0 is default value for 10us sleep-->
         <nUsleepPeriod>0</nUsleepPeriod>
+
         <!-- Thread SuspendPeriod period (us) veriable unit uint16_t the max value is 65536, 0 is default value for 550us sleep-->
         <nSuspendPeriod>0</nSuspendPeriod>
     </BbuPoolConfig>
@@ -278,12 +285,10 @@
         <enableChecker>1</enableChecker>
         <enableRlcAm>0</enableRlcAm>
     </UE>
+
     <ulBlerTarget>
         <!-- PUSCH DTX percentage -->
         <puschDtxPct>0</puschDtxPct>
-
-
-
         <!-- PUSCH CRC fail percentage -->
         <puschNackPct>10</puschNackPct>
         <!-- PUCCH DTX percentage -->
@@ -291,28 +296,30 @@
         <!-- PUCCH CRC fail percentage -->
         <pucchNackPct>0</pucchNackPct>
     </ulBlerTarget>
+
     <dlBlerTarget>
         <!-- PDSCH CRC fail percentage -->
         <pdschNackPct>10</pdschNackPct>
     </dlBlerTarget>
+
     <csirsCfg>
         <pdschOverlap>0</pdschOverlap>
     </csirsCfg>
+
     <rlcAmCfg>
         <snFieldLength>18</snFieldLength>
         <tPollRetransmit>300</tPollRetransmit>
         <pollPdu>32</pollPdu>
-
         <pollByte>50000</pollByte>
         <maxRetxThreshold>16</maxRetxThreshold>
         <tReassembly>25</tReassembly>
         <tStatusProhibit>15</tStatusProhibit>
         <winSizeSrb>64</winSizeSrb>
-
         <winSizeDrb>2048</winSizeDrb>
     </rlcAmCfg>
-    <PdcpConfig>
 
+
+    <PdcpConfig>
         <snBit>12</snBit>
         <discardTimer>0</discardTimer>
         <outOfOrderDelivery>1</outOfOrderDelivery>
@@ -327,25 +334,25 @@
         <ciphKey>11,22,33,44,55,66,77,88,99,aa,bb,cc,dd,ee,ff,00</ciphKey>
         <intKey>11,22,33,44,55,66,77,88,99,aa,bb,cc,dd,ee,ff,00</intKey>
     </PdcpConfig>
+
     <ConfiguredGrant>
         <!-- 0:CG disable, 1:CG type1, 2:CG type2, 3:Mixed CG type-->
         <CGType>3</CGType>
-
         <!-- unit is symbol in periodicity of 38331-->
         <periodicity>140</periodicity>
         <!-- L of RIV in 6.1.2.2.2 in 38214-->
-
         <rbStart>224</rbStart>
         <!-- L of RIV in 6.1.2.2.2 in 38214-->
         <rbSize>3</rbSize>
     </ConfiguredGrant>
+
     <UlScheConfig>
         <nMcs>27</nMcs>
         <dmrsmaxLength>1</dmrsmaxLength>
         <nMaxLayerUL>1</nMaxLayerUL>
-
         <ulModulation>2</ulModulation>
     </UlScheConfig>
+
     <pdcchCfg>
         <dciFormat>1</dciFormat>
         <dciFormatUrllc>1</dciFormatUrllc>
@@ -354,7 +361,6 @@
     <enableBwp>0</enableBwp>
     <Bwp>
         <numBwp>3</numBwp>
-
         <bwpInd1>1</bwpInd1>
         <bwpStart1>0</bwpStart1>
         <bwpSize1>100</bwpSize1>
@@ -364,32 +370,8 @@
         <bwpSwitchDelay>2</bwpSwitchDelay>
     </Bwp>
     <UesimNamedPipeCfg>
-        <ConsoleToUesimPipe>/tmp/tmp_console_to_uesim_pipe</ConsoleToUesimPipe>
-        <UesimToConsolePipe>/tmp/tmp_uesim_to_console_pipe</UesimToConsolePipe>
+	<ConsoleToUesimPipe>/tmp/tmp_console_to_uesim_pipe</ConsoleToUesimPipe>
+	<UesimToConsolePipe>/tmp/tmp_uesim_to_console_pipe</UesimToConsolePipe>
     </UesimNamedPipeCfg>
-    <library>
-        <section1>
-            <shelf1>
-                <book1>
-
-                    <title1>The Great Gatsby</title1>
-                    <author1>F. Scott Fitzgerald</author1>
-                </book1>
-                <book2>
-
-                    <title2>1984</title2>
-                    <author2>George Orwell</author2>
-                </book2>
-            </shelf1>
-        </section1>
-        <section2>
-            <shelf2>
-                <book3>
-                    <title3>To Kill a Mockingbird</title3>
-                    <author3>Harper Lee</author3>
-                </book3>
-            </shelf2>
-        </section2>
-        
-    </library>
 </UeSimConfig>
+

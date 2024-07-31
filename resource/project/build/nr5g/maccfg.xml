@@ -1,50 +1,35 @@
 <?xml version="1.0"?>
+<!--                                                                                         -->
 <!--   <COPYRIGHT_TAG>                                                                       -->
 <!--                                                                                         -->
-<!-- new declairation -->
 <MacConfig>
-
     <version>24.03</version>
 
     <Api>
         <!--  Full path to wls device used for transport of MAC-PHY API (e.g. wls0 )-->
         <wls_dev_name>wls0</wls_dev_name>
-        <phyBlockSize>6666666666666666666666</phyBlockSize>
+        <phyBlockSize>172096</phyBlockSize>
         <numBlockTypes>4</numBlockTypes>
         <blockSize0>0x400</blockSize0>
         <blockCount0>8192</blockCount0>
         <blockSize1>0x8000</blockSize1>
-        <company>
-            <department1>
-                <employee1>
-                    <name1>John Doe</name1>
-                    <position1>Engineer</position1>
-                </employee1>
-                <employee2>
-                    <name2>Jane Smith</name2>
-                    <position2>Manager</position2>
-                </employee2>
-            </department1>
-            <department2>
-                <employee3>
-                    <name3>Emily Johnson</name3>
-                    <position3>Analyst</position3>
-                </employee3>
-            </department2>
-        </company>
         <blockCount1>4096</blockCount1>
         <blockSize2>0x10000</blockSize2>
-        
         <blockCount2>2048</blockCount2>
         <blockSize3>0x2A800</blockSize3>
         <blockCount3>512</blockCount3>
     </Api>
 
-
+    <!-- This section defines all DPDK related parameters used for DPDK initialization -->
+    <DPDK>
+        <!--  name of DPDK memory zone, needs to align between primary and secondary process -->
+        <dpdkFilePrefix>gnb0</dpdkFilePrefix>
+        <!--  DPDK IOVA Mode used for DPDK initialization. If 0, then PA mode. Else VA Mode -->
+        <dpdkIovaMode>0</dpdkIovaMode>
+    </DPDK>
 
     <DPDKSharedResource>
         <PciF1uAddr>0000:86:02.0</PciF1uAddr>
-
         <mempoolName>fast_pkt</mempoolName>
         <!-- CUUP mac addr -->
         <dstMacAddr>00:11:22:33:44:59</dstMacAddr>
@@ -62,7 +47,6 @@
         <urllcThread>17, 96, 0</urllcThread>
 
         <!-- Control Agent Core Config -->
-
         <ControlAgentThread>21, 96, 0</ControlAgentThread>
     </Threads>
 
@@ -83,12 +67,7 @@
         <!-- BBUPool Worker Thread Cores (Bit mask of all cores that are used for BBU Pool in Decimal or Hex [needs to start with "0x"]) -->
         <BbuPoolThreadCoreMask0>0xF00</BbuPoolThreadCoreMask0>
         <BbuPoolThreadCoreMask1>0x0</BbuPoolThreadCoreMask1>
-
         <BbuPoolThreadCoreMask2>0x0</BbuPoolThreadCoreMask2>
-
-
-
-
         <BbuPoolThreadCoreMask3>0x0</BbuPoolThreadCoreMask3>
         <!-- BBUPool Sch Filter CoreMask (Bit mask of all cores that are used for BBU Pool in Decimal or Hex [needs to start with "0x"]) -->
         <BbuPoolSchFilterCoreMask0>0xFFFFFFFFFFFFFFFF</BbuPoolSchFilterCoreMask0>
@@ -141,7 +120,6 @@
     <DSAConfig>
         <enableDSA>0</enableDSA>
         <!-- 0: bind DSA channel to cell, 1: bind DSA channel to lcore -->
-
         <lcoreBindDSA>0</lcoreBindDSA>
         <DSANum>1</DSANum>
         <DSAAddr0>00:01.0</DSAAddr0>
@@ -152,14 +130,13 @@
         <DSAAddr5>00:01.5</DSAAddr5>
         <DSAAddr6>00:01.6</DSAAddr6>
         <DSAAddr7>00:01.7</DSAAddr7>
-    </DSAConfig>
+    <DSAConfig>
     <!--  cell add/delete one by one mode [0 - inactive, 1 - active]-->
     <CellDynOpr>0</CellDynOpr>
     <CellConfig>
         <numCell>4</numCell>
         <cellConfigFile1>cell1.xml</cellConfigFile1>
         <cellConfigFile2>cell2.xml</cellConfigFile2>
-    
         <cellConfigFile3>cell3.xml</cellConfigFile3>
         <cellConfigFile4>cell4.xml</cellConfigFile4>
     </CellConfig>
@@ -174,13 +151,11 @@
         <!--  0: not configured, 1: configured  -->
         <powerSavingPstateSwitch>0</powerSavingPstateSwitch>
         <powerSavingCstateSwitch>0</powerSavingCstateSwitch>
-
         <powerSavingCstateTtiSwitch>0</powerSavingCstateTtiSwitch>
         <powerSavingNumofRemainCores>0</powerSavingNumofRemainCores>
     </PowerSavingConfig>
     <!-- F1AP switch -->
     <DUControlSwitch>1</DUControlSwitch>
-
     <!-- SCTP params -->
     <DUName>gNB-DU-test</DUName>
     <DUId>21</DUId>
@@ -203,39 +178,12 @@
     <O1Enable>0</O1Enable>
     <O1HostName>127.0.0.1</O1HostName>
     <O1Port>11002</O1Port>
-
     <Global_gNB_ID>0</Global_gNB_ID>
     <PLMN_ID>131485</PLMN_ID>
     <gNB_DU_ID>0</gNB_DU_ID>
-
     <L2NamedPipeConfig>
         <ConsoleToL2Pipe>/tmp/tmp_console_to_l2_pipe</ConsoleToL2Pipe>
         <L2ToConsolePipe>/tmp/tmp_l2_to_console_pipe</L2ToConsolePipe>
-
         <L2ToConsolePeriodMetricsPipe>/tmp/tmp_l2_to_console_period_metrics_pipe</L2ToConsolePeriodMetricsPipe>
     </L2NamedPipeConfig>
-
-    <library>
-        <section1>
-            <shelf1>
-                <book1>
-                    <title1>The Great Gatsby</title1>
-                    <author1>F. Scott Fitzgerald</author1>
-                </book1>
-                <book2>
-                    <title2>1984</title2>
-                    <author2>George Orwell</author2>
-                </book2>
-            </shelf1>
-        </section1>
-        <section2>
-            <shelf2>
-                <book3>
-                    <title3>To Kill a Mockingbird</title3>
-                    <author3>Harper Lee</author3>
-                </book3>
-            </shelf2>
-        </section2>
-    </library>
-
 </MacConfig>
