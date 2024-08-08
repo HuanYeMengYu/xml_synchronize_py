@@ -50,9 +50,12 @@ python ./src/main.py ./resource/sync_value.txt ./resource/cell1.xml ./resource/b
 - xml_synchronize_py/resource/cell1.xml：该位置的参数为样本xml文件，你需要在其中修改内容，包括修改标签的数据、增删标签节点，其他指定的与该xml文件同名的xml文件会据此同步；自动增删标签来使得目标xml文件的结构与样本xml文件相同
 - 后续的可变长参数为指定的所有目录，这些目录下所有与样本xml文件同名的xml文件都会被同步
 - 程序运行后会显示同步的文件数量，以及其中的成功数量与失败数量，类似于下图：
-[图片]
-[图片]
-[图片]
+![image](https://github.com/user-attachments/assets/354ecaca-6191-4ff0-9288-4da93169c054)
+
+![image](https://github.com/user-attachments/assets/d058e3e6-67ad-4c36-b54f-8d8b2379e999)
+
+![image](https://github.com/user-attachments/assets/4b33723a-ab9b-4a4f-868c-86e821bfb4f7)
+
 - 在succeed.txt中保存着成功同步的xml文件的信息，包括该xml文件做出的改动（更改了哪些标签的数据、增删了哪些标签）
 - 在fail.txt中保存着同步失败的xml文件的报错信息，错误原因可能为xml格式错误、存在重复名称标签、根节点标签名称与样本xml不匹配等原因，方便使用者在同步失败时快速定位、排查问题
 
