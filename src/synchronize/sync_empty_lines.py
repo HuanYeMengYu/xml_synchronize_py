@@ -8,9 +8,6 @@ def sync_empty_lines(source_path, target_path, xml_encoding):
     # Find the blank line numbers in the source XML file
     empty_lines = [i for i, line in enumerate(source_content) if not line.strip()]
 
-    print(f"empty_lines = {empty_lines}")
-    print("source_content[-1] = " + source_content[-1])
-
     # The contents of the target XML file are converted to a list
     target_lines = target_content
 
@@ -25,11 +22,8 @@ def sync_empty_lines(source_path, target_path, xml_encoding):
             updated_target_lines.append(source_content[empty_lines[empty_line_index]])
             empty_line_index += 1
 
-    print("before: updated_target_lines[-1] = " + updated_target_lines[-1])
     # The last line of the synchronization file (may be blank)
     updated_target_lines[-1] = source_content[-1]
-
-    print("after: updated_target_lines[-1] = " + updated_target_lines[-1])
 
     # Write the updated content to the target XML file
     with open(target_path, 'w', encoding=xml_encoding) as target_file:

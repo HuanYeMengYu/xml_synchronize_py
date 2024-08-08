@@ -1,0 +1,2 @@
+This is the information of unsuccessful synchronization of XML files.
+---------------------------------------

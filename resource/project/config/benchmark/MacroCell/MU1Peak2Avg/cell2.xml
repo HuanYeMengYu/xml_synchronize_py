@@ -4,11 +4,64 @@
 <!--                                                                                         -->
 <CellConfig>
     <cellId>2</cellId>
+    <blank1/>
+    <library>
+        <!-- section1 -->
+        <section1>
+            <bookshelf1>
+                <book1>
+                    <title1>The Great Gatsby</title1>
+                    <author1>F. Scott Fitzgerald</author1>
+                    <publication1>
+                        <year1>1925</year1>
+
+                        <publisher1>Scribner</publisher1>
+                    </publication1>
+                </book1>
+            </bookshelf1>
+        </section1>
+
+        <blank2/>
+
+
+        <!-- section2 -->
+        <section2>
+            <magazine_rack2>
+                <magazine2>
+                    <title2>National Geographic</title2>
+                    <issue2>
+                        <month2>July</month2>
+                        <year2>2023</year2>
+                    </issue2>
+                </magazine2>
+            </magazine_rack2>
+        </section2>
+
+
+
+
+        <!-- section3 -->
+        <section3>
+            <dvd_shelf3>
+                <dvd3>
+                    <title3>Inception</title3>
+                    <director3>Christopher Nolan</director3>
+                    <release3>
+                        <year3>2010</year3>
+                        <studio3>Warner Bros.</studio3>
+                    </release3>
+                </dvd3>
+            </dvd_shelf3>
+        </section3>
+    </library>
     <nDMRSTypeAPos>666</nDMRSTypeAPos>
-    <nPhyCellId>12</nPhyCellId>
+    <nPhyCellId>11</nPhyCellId>
     <nULBandwidth>30</nULBandwidth>
     <nDLAbsFrePointA>4800720</nDLAbsFrePointA>
     <nULAbsFrePointA>4800720</nULAbsFrePointA>
+
+
+
     <nDLFftSize>4096</nDLFftSize>
     <nULFftSize>4096</nULFftSize>
     <nDLK0>1</nDLK0>
@@ -22,19 +75,22 @@
     <nFrameDuplexType>1</nFrameDuplexType>
 
     <nSubcCommon>1</nSubcCommon>
+
     <nCyclicPrefix>0</nCyclicPrefix>
     <nTddPeriod>10</nTddPeriod>
-    <slotCfg0>0,0,0,0,0,0,0,0,0,0,0,0,0,0</slotCfg0>
+    <slotCfg0>6,6,6,0,0,0,0,0,0,0,0,0,0,0</slotCfg0>
+
     <slotCfg2>0,0,0,0,0,0,0,0,0,0,0,0,0,0</slotCfg2>
 
     <slotCfg3>0,0,0,0,0,0,0,0,0,0,0,0,0,0</slotCfg3>
     <slotCfg4>0,0,0,0,0,0,0,0,0,0,0,0,0,0</slotCfg4>
     <ssbCfg>
-        <nSSBPwr>0</nSSBPwr>
+        <nSSBPwr>666</nSSBPwr>
         <nSSBAbsFre>4804320</nSSBAbsFre>
         <nSSBPeriod>2</nSSBPeriod>
         <nSSBSubcSpacing>2</nSSBSubcSpacing>
         <nSSBSubcOffset>0</nSSBSubcOffset>
+
         <nSSBPrbOffset>0</nSSBPrbOffset>
 
         <nCSS0>0</nCSS0>
@@ -42,12 +98,15 @@
     </ssbCfg>
     <nNumSymPdcch>1</nNumSymPdcch>
     <nNumPdschTimeDomain>4</nNumPdschTimeDomain>
+
     <!-- sort by symbol length -->
     <nPdschTimeDomainSLIV0>40</nPdschTimeDomainSLIV0>
     <nPdschTimeDomainSLIV1>54</nPdschTimeDomainSLIV1>
+
     <nPdschTimeDomainSLIV2>68</nPdschTimeDomainSLIV2>
 
     <nPdschTimeDomainSLIV3>82</nPdschTimeDomainSLIV3>
+
 
 
     <nNumPuschTimeDomain>1</nNumPuschTimeDomain>
@@ -55,8 +114,10 @@
 
     <nPuschTimeDomainSLIV0>27</nPuschTimeDomainSLIV0>
     <!-- ShortPUCCH -->
+
     <nPuschTimeDomainSLIV1>55</nPuschTimeDomainSLIV1>
 
+    
     <nPuschTimeDomainIndex>14</nPuschTimeDomainIndex>
     <k2>4</k2>
     <massiveMIMO>
@@ -73,24 +134,28 @@
             <!-- ul resource allocation type. 0: not continuous; 1: continuous. SU MIMO default value is type 1. -->
             <nULAllocType>1</nULAllocType>
         </ulmassiveMIMO>
+
         <!--nMaxPairTrialPerSubbans is max pairing trails per subband, only for cus nMimoMode-->
         <nMaxPairTrialPerSubband>32</nMaxPairTrialPerSubband>
     </massiveMIMO>
     <nUlSchedMode>0</nUlSchedMode>
 
+
     <!--0: More scheduled UEs 1: More Throughput-->
     <nRbAlocPref>1</nRbAlocPref>
+
     <enableDciCheckBeforeUlSch>0</enableDciCheckBeforeUlSch>
 
     <enableStats>0</enableStats>
     <nMcsTable>1</nMcsTable>
     <nMcsTableUL>0</nMcsTableUL>
+    
     <nMcs>10</nMcs>
     <nMcsUL>27</nMcsUL>
 
     <numDmrsAddtional>1</numDmrsAddtional>
 
-    <adrForgetFactor>75</adrForgetFactor>
+    <adrForgetFactor>99</adrForgetFactor>
     <enablePucch>1</enablePucch>
     <enableSr>1</enableSr>
     <enableCsi>1</enableCsi>
@@ -220,7 +285,7 @@
         <pdschOverlap>0</pdschOverlap>
     </csirsCfg>
     <!--  UM-0, AM-1  -->
-    <enableRlcAm>0</enableRlcAm>
+    <enableRlcAm>1</enableRlcAm>
     <rlcAmCfg>
         <snFieldLength>18</snFieldLength>
         <tPollRetransmit>35</tPollRetransmit>
@@ -251,49 +316,6 @@
         <spsperiodicity>10</spsperiodicity>
         <spsrbSize>3</spsrbSize>
     </SemiPersistentScheduling>
-    <Cell_Identity>1</Cell_Identity>
-    <Global_gNB_ID>1</Global_gNB_ID>
-    <library>
-        <section1>
-            <bookshelf1>
-                <book1>
-                    <title1>The Great Gatsby</title1>
-                    <author1>F. Scott Fitzgerald</author1>
-                    <publication1>
-                        <year1>1925</year1>
-                        <publisher1>Scribner</publisher1>
-                    </publication1>
-                </book1>
-            </bookshelf1>
-        </section1>
-        <section2>
-            <magazine_rack2>
-                <magazine2>
-                    <title2>National Geographic</title2>
-                    <issue2>
-                        <month2>July</month2>
-                        <year2>2023</year2>
-                    </issue2>
-                </magazine2>
-            </magazine_rack2>
-        </section2>
-        <section3>
-            <dvd_shelf3>
-                <dvd3>
-                    <title3>Inception</title3>
-                    <director3>Christopher Nolan</director3>
-                    <release3>
-                        <year3>2010</year3>
-                        <studio3>Warner Bros.</studio3>
-                    </release3>
-                </dvd3>
-            </dvd_shelf3>
-        </section3>
-    </library>
+    <Cell_Identity>0</Cell_Identity>
+    <Global_gNB_ID>0</Global_gNB_ID>
 </CellConfig>
-
-
-
-
-
-

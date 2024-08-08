@@ -31,7 +31,9 @@ def sync_add(src_elem, dst_elem):
         if flag_exist:
             continue
         else:
-            print(f"Add tag {get_node_path.get_node_path(src_child)}")
+            with open('succeed.txt', 'a') as file:
+                file.write("Added tag '{}'\n".format(get_node_path.get_node_path(src_child)))
+            # print(f"Added tag '{get_node_path.get_node_path(src_child)}'")
             index = get_node_index.get_node_index(src_child)
             dst_parent.insert(index, copy.deepcopy(src_child))
 

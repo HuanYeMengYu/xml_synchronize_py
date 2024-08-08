@@ -30,7 +30,9 @@ def sync_del(src_elem, dst_elem):
         if flag_exist:
             continue
         else:
-            print(f"Delete tag {get_node_path.get_node_path(dst_child)}")
+            with open('succeed.txt', 'a') as file:
+                file.write("Deleted tag '{}'\n".format(get_node_path.get_node_path(dst_child)))
+            # print(f"Deleted tag '{get_node_path.get_node_path(dst_child)}'")
             dst_parent.remove(dst_child)
 
 if __name__ == '__main__':

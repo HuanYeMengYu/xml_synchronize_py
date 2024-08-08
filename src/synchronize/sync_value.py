@@ -10,7 +10,9 @@ def sync_value(src_elem, dst_elem, sync_elems):
         for find_src_elem in find_src_elems:
             for find_dst_elem in find_dst_elems:
                 if get_node_path.get_node_path(find_src_elem) == get_node_path.get_node_path(find_dst_elem):
-                    print(f"Synchronize tag data {get_node_path.get_node_path(find_src_elem)} : {find_src_elem.text}")
+                    with open('succeed.txt', 'a') as file:
+                        file.write("Synchronized tag data '{}' = {}\n".format(get_node_path.get_node_path(find_src_elem), find_src_elem.text))
+                    # print(f"Synchronized tag data '{get_node_path.get_node_path(find_src_elem)}' = {find_src_elem.text}")
                     find_dst_elem.text = find_src_elem.text
 
 if __name__ == '__main__':

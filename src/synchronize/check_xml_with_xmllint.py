@@ -7,13 +7,19 @@ def check_xml_with_xmllint(file_path):
 
         # Check return status
         if result.returncode != 0:
-            print("----------------------------------------")
-            print(f"{file_path} format doesn't meet the specifications!")
-            print("The following is the error output:")
-            print(f"{result.stderr}")
-            print("----------------------------------------")
+            with open('fail.txt', 'a') as file:
+                file.write("---------------------------------------\n")
+                file.write("Failed synchronizing xml file '{}'\n".format(file_path))
+                file.write("The format of XML file '{}' doesn't meet the specifications!\n".format(file_path))
+                file.write("The following is the parsing error output:\n")
+                file.write("{}".format(result.stderr))
+            # print("---------------------------------------")
+            # print(f"Failed synchronizing xml file '{file_path}'")
+            # print(f"The format of XML file '{file_path}' doesn't meet the specifications!")
+            # print("The following is the parsing error output:")
+            # print(f"{result.stderr}")
             return 0
         return 1
     except FileNotFoundError:
-        print("xmllint command not found. Please make sure xmllint is installed and in your PATH.")
+        print("\033[31mxmllint command not found. Please make sure xmllint is installed and in your PATH.\033[0m")
         return 0
