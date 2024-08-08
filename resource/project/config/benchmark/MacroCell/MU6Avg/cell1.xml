@@ -8,6 +8,7 @@
 
 <CellConfig>
     <cellId>1</cellId>
+    <Russia>Russia</Russia>
     <library>
         <!-- section1 -->
         <section1>
@@ -52,8 +53,7 @@
     </library>
     <nDMRSTypeAPos>777</nDMRSTypeAPos>
     <nPhyCellId>11</nPhyCellId>
-
-    <nULBandwidth>200</nULBandwidth>
+    <new1>new1</new1>
     <nDLAbsFrePointA>4800720</nDLAbsFrePointA>
     <nULAbsFrePointA>4800720</nULAbsFrePointA>
     <nDLFftSize>4096</nDLFftSize>

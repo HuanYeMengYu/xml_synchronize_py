@@ -1,2 +1,16 @@
 This is the information of unsuccessful synchronization of XML files.
 ---------------------------------------
+---------------------------------------
+Failed synchronizing xml file './resource/project/config/benchmark/NarrowBand/fdd6cell20mhz-um/cell1.xml'
+The target xml file './resource/project/config/benchmark/NarrowBand/fdd6cell20mhz-um/cell1.xml' has tags with same name {'cellId'} .
+Skip synchronizing this target file.
+---------------------------------------
+Failed synchronizing xml file './resource/project/build/nr5g/cell1.xml'
+The format of XML file './resource/project/build/nr5g/cell1.xml' doesn't meet the specifications!
+The following is the parsing error output:
+./resource/project/build/nr5g/cell1.xml:270: parser error : Opening and ending tag mismatch: cellId line 10 and CellConfig
+</CellConfig>
+             ^
+./resource/project/build/nr5g/cell1.xml:271: parser error : Premature end of data in tag cellId line 10
+
+^

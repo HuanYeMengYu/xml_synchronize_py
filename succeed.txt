@@ -2,280 +2,547 @@ This is the information of successful synchronization of XML files.
 ---------------------------------------
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/HTOFF_todo/PacketHTOFF/UMHTOFF/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/HTOFF_todo/PacketHTOFF/AMHTOFF/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/HTOFF_todo/SCHHTOFF/HTOFF4AVGSCH/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/SPR-SP/6388/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/SPR-SP/12389/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/SPR-SP/1376/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/SPR-SP/6389/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/SPR-SP/12388/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/SPR-SP/1369/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/MU6Avg/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/ICX-SP/6388/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/ICX-SP/12389/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/ICX-SP/1376/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/ICX-SP/6389/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/ICX-SP/12388/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/ICX-SP/1369/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/MU1Peak2Avg/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/SCHHTON/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/SPR-EE/6388/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/SPR-EE/18220/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/SPR-EE/12389/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/SPR-EE/1376/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/SPR-EE/6389/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/SPR-EE/4300/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/SPR-EE/12388/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/SPR-EE/1369/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/PKTHTAM/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/GNR-D/6388/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/GNR-D/12389/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/GNR-D/1376/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/GNR-D/6389/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/GNR-D/12388/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/GNR-D/1369/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/MacroCell/PKTHTUM/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/tdd3cell40mhz-am/cell1.xml'
-Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
----------------------------------------
-Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/fdd6cell20mhz-um/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/tdd3cell40mhz-um/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/tdd6cell20mhz-um/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/tdd9cell20mhz40mhz-am/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/fdd12cell10mhz-um/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/tdd9cell20mhz40mhz-um/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/ICX-SP/12220U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/ICX-SP/18220U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/ICX-SP/6220A/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/ICX-SP/18220A/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/ICX-SP/18227U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/ICX-SP/12010A/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/ICX-SP/12010U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/ICX-SP/12220A/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/ICX-SP/6220U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/ICX-SP/18227A/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/fdd18cell10mhz20mhz-am/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/fdd12cell10mhz-am/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/fdd6cell20mhz-am/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/SPR-EE/12220U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/SPR-EE/18220U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/SPR-EE/6220A/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/SPR-EE/18220A/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/SPR-EE/18227U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/SPR-EE/12010A/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/SPR-EE/12010U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/SPR-EE/12220A/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/SPR-EE/6220U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/SPR-EE/18227A/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/fdd18cell10mhz20mhz-um/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/NarrowBand/tdd6cell20mhz-am/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/SmallCell/4300U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/SmallCell/8300A/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/SmallCell/4307A/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/SmallCell/8307A/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/SmallCell/4300A/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/SmallCell/4307U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/SmallCell/8307U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/benchmark/SmallCell/8300U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/IntegrateOnlyWithL1/NarrowBand/ICX-SP/12220U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/IntegrateOnlyWithL1/NarrowBand/ICX-SP/18220U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/IntegrateOnlyWithL1/NarrowBand/ICX-SP/18227U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/IntegrateOnlyWithL1/NarrowBand/ICX-SP/12010U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/IntegrateOnlyWithL1/NarrowBand/ICX-SP/6220U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/IntegrateOnlyWithL1/NarrowBand/SPR-EE/12220U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/IntegrateOnlyWithL1/NarrowBand/SPR-EE/18220U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/IntegrateOnlyWithL1/NarrowBand/SPR-EE/18227U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/IntegrateOnlyWithL1/NarrowBand/SPR-EE/12010U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/IntegrateOnlyWithL1/NarrowBand/SPR-EE/6220U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/IntegrateOnlyWithL1/SmallCell/ICX-SP/4300U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/IntegrateOnlyWithL1/SmallCell/ICX-SP/4307U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/IntegrateOnlyWithL1/SmallCell/ICX-SP/8307U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/IntegrateOnlyWithL1/SmallCell/ICX-SP/8300U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/IntegrateOnlyWithL1/SmallCell/SPR-EE/4300U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/IntegrateOnlyWithL1/SmallCell/SPR-EE/4307U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/IntegrateOnlyWithL1/SmallCell/SPR-EE/8307U/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
 ---------------------------------------
 Successfully synchronized file:'./resource/project/config/IntegrateOnlyWithL1/SmallCell/SPR-EE/8300U/cell1.xml'
-Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
----------------------------------------
-Successfully synchronized file:'./resource/project/build/nr5g/cell1.xml'
+Added tag '/CellConfig/Russia'
+Added tag '/CellConfig/new1'
+Deleted tag '/CellConfig/nULBandwidth'
 Synchronized tag data '/CellConfig/nDMRSTypeAPos' = 777
